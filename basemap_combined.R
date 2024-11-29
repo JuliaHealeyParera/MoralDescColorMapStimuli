@@ -276,7 +276,8 @@ create_map = function(a_idx, col, starting_angle) {
     geom_polygon(data = coords2, aes(x = V1, y = V2, fill = damage)) +
     geom_polygon(data = coords3, aes(x = V1, y = V2, fill = damage)) +
     geom_polygon(data = coords4, aes(x = V1, y = V2, fill = damage)) +
-    geom_text(data = labels, aes(x = x, y = y, label = text), color = "white") +
+    geom_text(data = labels, aes(x = x, y = y, label = text), color = "white", size = 12) +
+    labs(fill = "Damage") +
     coord_fixed() 
   
   if (col == "blues") {
@@ -285,7 +286,7 @@ create_map = function(a_idx, col, starting_angle) {
   } 
   else {
     map_col <- map +
-      scale_fill_continuous(limits = c(0,100))
+      scale_fill_viridis(option = "rocket", limits = c(0,100))
   }
     
   map_col <- map_col + theme_void()
@@ -302,7 +303,7 @@ download_map = function(map, a_idx, intuition, col, i) {
   intuition_level = if_else(intuition == "int", "intuitive", "nonintuitive")
   i = paste("ver", i)
   
-  download_name <- paste(scenario, col, intuition_level, i, sep = "_")
+  download_name <- paste(scenario, col, intuition_level, i, ".png", sep = "_")
   folder_name <- paste(scenario, col, intuition_level, "maps", sep = "_")
   path <- here("map_plots", folder_name, download_name) 
   
@@ -344,12 +345,11 @@ for (a_idx in scenario_a_indx) {
           map <- create_map(a_idx, col, starting_angle)
         }
         
-        download_map(map, a_idx, intuition, col, i)
+        filename <- download_map(map, a_idx, intuition, col, i)
         
         attr <- c(a_idx, intuition, col, i, starting_angle, filename)
-        map_attributes <- map_attributes |> vstack(attr)
+        map_attributes <- map_attributes |> rbind(attr)
       }
     }
   }
 }
-

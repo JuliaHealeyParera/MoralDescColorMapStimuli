@@ -133,7 +133,20 @@ all <- bind_rows(us_cont_county_sf_ky,
 #Top 12 area ratios (most circular)
 all_slice_12 <- all |>
   arrange(desc(area_ratio)) |>
-  slice_head(n=12)
+  slice_head(n=25) |>
+  filter(!(place_name %in% 
+             c('Macon County, Georgia', 
+               'Dinwiddie County, Virginia', 
+               'Dickson County, Tennessee', 
+               'Harrison County, West Virginia', 
+               'Stewart County, Georgia', 
+               'Ashe County, North Carolina', 
+               'Pulaski County, Kentucky', 
+               'Augusta County, Virginia',
+               'Stokes County, North Carolina',
+               'Fayette County, Tennessee',
+               'Washington County, Kentucky',
+               'Nicholas County, Kentucky')))
 
 #Area scaling
 all_slice_12 <- all_slice_12 |>
@@ -209,24 +222,30 @@ rot <- function(df, angle_deg) {
   return(df_rotated)
 }
 
+#Map creation function
 create_map = function(a_idx, col, starting_angle) {
+  #Index for D country is 3 after index for A country -- select damage levels
   d_idx <- a_idx + 3
   props <- scenarios[a_idx:d_idx]
   
+  #Select four random polygons
   polys <- all_slice_12 |> 
     ungroup() |>
     slice_sample(n = 4, replace = FALSE) 
   
+  #Declare polygon objects
   obj1 <- polys[1, ] 
   obj2 <- polys[2, ]
   obj3 <- polys[3, ]
   obj4 <- polys[4, ]
   
+  #Establish map-wise rotation
   first_obj_rad = starting_angle * pi/180
   second_obj_rad = first_obj_rad + pi/2 
   third_obj_rad = first_obj_rad + pi
   fourth_obj_rad = first_obj_rad + 3*pi/2
   
+  #Calculate end-goal center coordinates of each polygon
   cntr1_x = cos(first_obj_rad)
   cntr1_y = sin(first_obj_rad)
   cntr2_x = cos(second_obj_rad)
@@ -236,6 +255,7 @@ create_map = function(a_idx, col, starting_angle) {
   cntr4_x = cos(fourth_obj_rad)
   cntr4_y = sin(fourth_obj_rad)
   
+  #Translating polygons to formerly-calculated center coordinates
   coords1 <- reprocess_coords(obj1) |>
     mutate(V1 = V1 + cntr1_x,
            V2 = V2 + cntr1_y,
@@ -253,23 +273,28 @@ create_map = function(a_idx, col, starting_angle) {
            V2 = V2 + cntr4_y,
            damage = props[4])
   
+  #Rotate polygons by random amount
   rot_angles <- sample(0:360, size=4)
   coords1 <- rot(coords1, rot_angles[1])
   coords2 <- rot(coords2, rot_angles[2])
   coords3 <- rot(coords3, rot_angles[3])
   coords4 <- rot(coords4, rot_angles[4])
   
+  #Create label overlay with polygon center coordinates
   labels <- data.frame(
     text = c("A", "B", "C", "D"),
     x = c(cntr1_x, cntr2_x, cntr3_x, cntr4_x),
     y = c(cntr1_y, cntr2_y, cntr3_y, cntr4_y))
   
+  #Four possibilities for base region size and deviation amount
+  #Pre-selected based on visual salience
   idx <- sample(c(1,2,3,4), size = 1)
   radius <- c(1.9, 1.8, 1.6, 1.9)
   perimeter <- c(8, 10, 10, 8)
   deviation <- c(.08, .1, .1, .06)
   circle <- base_circle(radius[idx], perimeter[idx], deviation[idx]) 
   
+  #Plot, store to object
   map <- ggplot() +
     geom_polygon(circle, mapping = aes(x=x, y=y), fill = "gray") +
     geom_polygon(data = coords1, aes(x = V1, y = V2, fill = damage)) +
@@ -280,20 +305,22 @@ create_map = function(a_idx, col, starting_angle) {
     labs(fill = "Damage") +
     coord_fixed() 
   
-  if (col == "blues") {
+  if (col == "blues") { #Blue color map
     map_col <- map +
-      scale_fill_continuous(limits = c(0,100))
-  } 
-  else {
+      scale_fill_continuous(limits = c(0,100))} 
+  else { #Rocket color map
     map_col <- map +
-      scale_fill_viridis(option = "rocket", limits = c(0,100))
-  }
-    
+      scale_fill_viridis(option = "rocket", limits = c(0,100))}
+
+  #Add void theme to eliminate grid lines, axes, etc. 
+  #Q - add white background? (Currently transparent background)
   map_col <- map_col + theme_void()
   return(map_col)
 }
 
+#Save map to repository
 download_map = function(map, a_idx, intuition, col, i) {
+  #Create scenario prefix, rename intuitition level, add version number
   scenario = case_when(a_idx == 1 ~ "scen1",
                        a_idx == 5 ~ "scen2",
                        a_idx == 9 ~ "scen3",
@@ -303,25 +330,31 @@ download_map = function(map, a_idx, intuition, col, i) {
   intuition_level = if_else(intuition == "int", "intuitive", "nonintuitive")
   i = paste("ver", i)
   
+  #Create name, folder name, and set path
   download_name <- paste(scenario, col, intuition_level, i, ".png", sep = "_")
   folder_name <- paste(scenario, col, intuition_level, "maps", sep = "_")
   path <- here("map_plots", folder_name, download_name) 
   
+  #Save and return name for storage in attribute table
   ggsave(path, plot = map, width = 10, height = 8, dpi = 300)
-  
   return(download_name)
 }
 
-#6 scenarios, each needs 16 different versions of base maps 
-#From those, make four versions for each level of intuition and color scheme 
+#Scenario damage levels
 scenarios <- c(c(25,25,25,25),c(40,40,10,10),c(10,10,40,40),c(40,25,25,10),c(10,25,25,40),c(25,25,10,40),
                c(75,75,75,75),c(60,60,90,90),c(90,90,60,60),c(60,75,75,90),c(90,75,75,60),c(75,75,90,60))
+#Possible indices of country A for each scenario 
 scenario_a_indx <- c(1,5,9,13,17,21)
+#Differentiating between intuititon levels and color schemes 
 int_nonint <- c("int", "nonint")
 col_scheme <- c("rocket", "blues")
-iter <- c(1,2,3,4)
+#Version number
+iter <- c(1,2,3,4,5,6,7,8)
+#Possible map rotations
+#Any given two maps within an attribute combination will be at least 15 degrees apart
 map_rot <- c(0,15,30,45,60,75,90,105,120,135,150,165,180,195,210,225,240,255,270,285,300,315,330,345)
 
+#Initialize attributes dataframe
 map_attributes <- data.frame(
   a_idx = c(),
   intuition = c(),
@@ -334,16 +367,17 @@ map_attributes <- data.frame(
 for (a_idx in scenario_a_indx) {
   for (col in col_scheme){
     for (intuition in int_nonint) {
+      #Randomly choose 8 starting angles for 8 versions of a given combination
+      starting_angle_arr <- sample(map_rot, size = 8, replace = FALSE)
       for (i in iter) {
-        starting_angle <- sample(map_rot, size = 1)
-        
+        starting_angle = starting_angle_arr[i]
+
         if (intuition == "nonint") {
+          #If unintuitive, jump to unintuitive colormap index
           temp_idx = a_idx + 24
-          map <- create_map(temp_idx, col, starting_angle)
-        }
+          map <- create_map(temp_idx, col, starting_angle)}
         else {
-          map <- create_map(a_idx, col, starting_angle)
-        }
+          map <- create_map(a_idx, col, starting_angle)}
         
         filename <- download_map(map, a_idx, intuition, col, i)
         
@@ -353,3 +387,22 @@ for (a_idx in scenario_a_indx) {
     }
   }
 }
+
+???
+map_attributes_edited <- map_attributes |>
+  mutate(scenario_props = case_when(X.1. %in% c(1,25) ~ '25_25_25_25',
+                                    X.1. %in% c(5,29) ~ '40_40_10_10',
+                                    X.1. %in% c(9,33) ~ '10_10_40_40',
+                                    X.1. %in% c(13,37) ~ '40_25_25_10',
+                                    X.1. %in% c(17,41) ~ '10_25_25_40',
+                                    X.1. %in% c(21,45) ~ '25_25_10_40')) |>
+  rename(intuition = X.int.,
+         colormap = X.rocket.,
+         version = X.1..1,
+         rotation = X.285.,
+         filename = X.scen1_rocket_intuitive_ver.1_.png.) |>
+  select(-X.1.)
+
+write.csv(map_attributes_edited, 'map_attributes.csv')
+
+

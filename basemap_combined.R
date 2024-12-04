@@ -290,7 +290,7 @@ create_map = function(a_idx, col, starting_angle) {
   #Pre-selected based on visual salience
   idx <- sample(c(1,2,3,4), size = 1)
   radius <- c(1.9, 1.8, 1.6, 1.9)
-  perimeter <- c(8, 10, 10, 8)
+  perimeter <- c(8, 9, 9, 8)
   deviation <- c(.08, .1, .1, .06)
   circle <- base_circle(radius[idx], perimeter[idx], deviation[idx]) 
   
@@ -388,20 +388,17 @@ for (a_idx in scenario_a_indx) {
   }
 }
 
-???
+
 map_attributes_edited <- map_attributes |>
-  mutate(scenario_props = case_when(X.1. %in% c(1,25) ~ '25_25_25_25',
-                                    X.1. %in% c(5,29) ~ '40_40_10_10',
-                                    X.1. %in% c(9,33) ~ '10_10_40_40',
-                                    X.1. %in% c(13,37) ~ '40_25_25_10',
-                                    X.1. %in% c(17,41) ~ '10_25_25_40',
-                                    X.1. %in% c(21,45) ~ '25_25_10_40')) |>
-  rename(intuition = X.int.,
-         colormap = X.rocket.,
-         version = X.1..1,
-         rotation = X.285.,
-         filename = X.scen1_rocket_intuitive_ver.1_.png.) |>
+  mutate(scenario_props = case_when(X.1. == 1 ~ '25_25_25_25',
+                                    X.1. == 5 ~ '40_40_10_10',
+                                    X.1. == 9 ~ '10_10_40_40',
+                                    X.1. == 13 ~ '40_25_25_10',
+                                    X.1. == 17 ~ '10_25_25_40',
+                                    X.1. == 21 ~ '25_25_10_40')) |>
   select(-X.1.)
+
+colnames(map_attributes_edited) <- c('intuition', 'colormap', 'version', 'rotation', 'file_name', 'scenario_props')
 
 write.csv(map_attributes_edited, 'map_attributes.csv')
 

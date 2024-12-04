@@ -39,9 +39,9 @@ base_circle <- function(radius = 5, target_perimeter = 20, deviation_factor = 0.
 
 idx <- sample(c(1,2,3,4), size = 1)
 radius <- c(1.9, 1.8, 1.6, 1.9)
-perimeter <- c(8, 10, 10, 8)
+perimeter <- c(8, 9, 9, 8)
 deviation <- c(.08, .1, .1, .06)
-circle <- base_circle(1.9, 8, .06) 
+circle <- base_circle(1.6, 9, .1) 
 ggplot() +
   geom_polygon(circle, mapping = aes(x=x, y=y), fill = "gray") +
   coord_fixed()

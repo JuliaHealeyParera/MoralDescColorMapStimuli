@@ -130,23 +130,15 @@ all <- bind_rows(us_cont_county_sf_ky,
                  us_cont_county_sf_tn, 
                  us_cont_county_sf_nc)
 
-#Top 12 area ratios (most circular)
+#Best four states
 all_slice_12 <- all |>
   arrange(desc(area_ratio)) |>
   slice_head(n=25) |>
-  filter(!(place_name %in% 
-             c('Macon County, Georgia', 
-               'Dinwiddie County, Virginia', 
-               'Dickson County, Tennessee', 
-               'Harrison County, West Virginia', 
-               'Stewart County, Georgia', 
-               'Ashe County, North Carolina', 
-               'Pulaski County, Kentucky', 
-               'Augusta County, Virginia',
-               'Stokes County, North Carolina',
-               'Fayette County, Tennessee',
-               'Washington County, Kentucky',
-               'Nicholas County, Kentucky')))
+  filter((GEOID %in% 
+             c(47087, 
+               37145,
+               47051,
+               37033)))
 
 #Area scaling
 all_slice_12 <- all_slice_12 |>
@@ -160,8 +152,6 @@ all_slice_12 <- all_slice_12 |>
     geometry = geometry - center,
     center = st_centroid(geometry),
     geometry = geometry * sqrt(area_coef) / 100)
-
-
 
 ###BASE POLYGON CODE - separated for readability in basepolygon_separate.R
 generate_circle <- function(radius) {
@@ -222,8 +212,9 @@ rot <- function(df, angle_deg) {
   return(df_rotated)
 }
 
+
 #Map creation function
-create_map = function(a_idx, col, starting_angle) {
+create_map = function(a_idx, col, starting_angle, int_nonint) {
   #Index for D country is 3 after index for A country -- select damage levels
   d_idx <- a_idx + 3
   props <- scenarios[a_idx:d_idx]
@@ -232,7 +223,7 @@ create_map = function(a_idx, col, starting_angle) {
   polys <- all_slice_12 |> 
     ungroup() |>
     slice_sample(n = 4, replace = FALSE) 
-  
+
   #Declare polygon objects
   obj1 <- polys[1, ] 
   obj2 <- polys[2, ]
@@ -286,13 +277,8 @@ create_map = function(a_idx, col, starting_angle) {
     x = c(cntr1_x, cntr2_x, cntr3_x, cntr4_x),
     y = c(cntr1_y, cntr2_y, cntr3_y, cntr4_y))
   
-  #Four possibilities for base region size and deviation amount
-  #Pre-selected based on visual salience
-  idx <- sample(c(1,2,3,4), size = 1)
-  radius <- c(1.9, 1.8, 1.6, 1.9)
-  perimeter <- c(8, 9, 9, 8)
-  deviation <- c(.08, .1, .1, .06)
-  circle <- base_circle(radius[idx], perimeter[idx], deviation[idx]) 
+  #Circle qualities pre-selected based on visual salience
+  circle <- base_circle(1.8, 9, .1) 
   
   #Plot, store to object
   map <- ggplot() +
@@ -306,21 +292,33 @@ create_map = function(a_idx, col, starting_angle) {
     coord_fixed() 
   
   if (col == "blues") { #Blue color map
-    map_col <- map +
-      scale_fill_continuous(limits = c(0,100))} 
+    if (int_nonint == "int") {
+      map_col <- map +
+        scale_fill_distiller(direction = 1, palette = "Blues", limits = c(0, 100))} 
+    else {
+      map_col <- map +
+        scale_fill_distiller(direction = -1, palette = "Blues", limits = c(0, 100))}
+    }
   else { #Rocket color map
-    map_col <- map +
-      scale_fill_viridis(option = "rocket", limits = c(0,100))}
+    if (int_nonint == "int") {
+      map_col <- map +
+        scale_fill_viridis_c(option = "rocket", direction = 1, limits = c(0, 100))}
+      else {
+      map_col <- map +
+        scale_fill_viridis_c(option = "rocket", direction = -1, limits = c(0, 100))}
+  }
 
   #Add void theme to eliminate grid lines, axes, etc. 
   #Q - add white background? (Currently transparent background)
-  map_col <- map_col + theme_void()
+  map_col <- map_col + 
+    theme_void() +  
+    theme(plot.background = element_rect(fill = "white", color = NA))
   return(map_col)
 }
 
 #Save map to repository
 download_map = function(map, a_idx, intuition, col, i) {
-  #Create scenario prefix, rename intuitition level, add version number
+  #Create scenario prefix, rename intuition level, add version number
   scenario = case_when(a_idx == 1 ~ "scen1",
                        a_idx == 5 ~ "scen2",
                        a_idx == 9 ~ "scen3",
@@ -349,7 +347,7 @@ scenario_a_indx <- c(1,5,9,13,17,21)
 int_nonint <- c("int", "nonint")
 col_scheme <- c("rocket", "blues")
 #Version number
-iter <- c(1,2,3,4,5,6,7,8)
+iter <- c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16)
 #Possible map rotations
 #Any given two maps within an attribute combination will be at least 15 degrees apart
 map_rot <- c(0,15,30,45,60,75,90,105,120,135,150,165,180,195,210,225,240,255,270,285,300,315,330,345)
@@ -368,16 +366,11 @@ for (a_idx in scenario_a_indx) {
   for (col in col_scheme){
     for (intuition in int_nonint) {
       #Randomly choose 8 starting angles for 8 versions of a given combination
-      starting_angle_arr <- sample(map_rot, size = 8, replace = FALSE)
+      starting_angle_arr <- sample(map_rot, size = 16, replace = FALSE)
       for (i in iter) {
         starting_angle = starting_angle_arr[i]
-
-        if (intuition == "nonint") {
-          #If unintuitive, jump to unintuitive colormap index
-          temp_idx = a_idx + 24
-          map <- create_map(temp_idx, col, starting_angle)}
-        else {
-          map <- create_map(a_idx, col, starting_angle)}
+        
+        map <- create_map(a_idx, col, starting_angle, int_nonint)
         
         filename <- download_map(map, a_idx, intuition, col, i)
         

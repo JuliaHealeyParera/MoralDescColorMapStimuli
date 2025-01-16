@@ -200,6 +200,8 @@ reprocess_coords = function(country) {
 }
 
 #Rotation function
+#For some reason, rotates polygon around both its center and the base circle by angle_deg
+#This is accounted for later on, but would ideally be fixed
 rot <- function(df, angle_deg) {
   angle_rad <- angle_deg * (pi / 180)
   
@@ -238,6 +240,10 @@ create_map = function(a_idx, col, starting_angle, intuition) {
   third_obj_rad = first_obj_rad + pi
   fourth_obj_rad = first_obj_rad + 3*pi/2
   
+  #Choose angle of internal rotation
+  rot_angle <- sample(0:360, size=1)
+  rot_rad = rot_angle * pi/180
+  
   #Calculate end-goal center coordinates of each polygon
   cntr1_x = cos(first_obj_rad)
   cntr1_y = sin(first_obj_rad)
@@ -266,18 +272,27 @@ create_map = function(a_idx, col, starting_angle, intuition) {
            V2 = V2 + cntr4_y,
            damage = props[4])
   
-  #Rotate polygons by random amount
-  rot_angles <- sample(0:360, size=4)
-  coords1 <- rot(coords1, rot_angles[1])
-  coords2 <- rot(coords2, rot_angles[2])
-  coords3 <- rot(coords3, rot_angles[3])
-  coords4 <- rot(coords4, rot_angles[4])
+  #Rotate polygons by same random amount because of odd rot() functionality
+  coords1 <- rot(coords1, rot_angle)
+  coords2 <- rot(coords2, rot_angle)
+  coords3 <- rot(coords3, rot_angle)
+  coords4 <- rot(coords4, rot_angle)
   
   #Create label overlay with polygon center coordinates
+  #Adding rotation from rot() function to label coordinates
+  cntr1_x_rot <- cntr1_x * cos(rot_rad) - cntr1_y * sin(rot_rad)
+  cntr1_y_rot <- cntr1_x * sin(rot_rad) + cntr1_y * cos(rot_rad)
+  cntr2_x_rot <- cntr2_x * cos(rot_rad) - cntr2_y * sin(rot_rad)
+  cntr2_y_rot <- cntr2_x * sin(rot_rad) + cntr2_y * cos(rot_rad)
+  cntr3_x_rot <- cntr3_x * cos(rot_rad) - cntr3_y * sin(rot_rad)
+  cntr3_y_rot <- cntr3_x * sin(rot_rad) + cntr3_y * cos(rot_rad)
+  cntr4_x_rot <- cntr4_x * cos(rot_rad) - cntr4_y * sin(rot_rad)
+  cntr4_y_rot <- cntr4_x * sin(rot_rad) + cntr4_y * cos(rot_rad)
+  
   labels <- data.frame(
     text = c("A", "B", "C", "D"),
-    x = c(cntr1_x, cntr2_x, cntr3_x, cntr4_x),
-    y = c(cntr1_y, cntr2_y, cntr3_y, cntr4_y))
+    x = c(cntr1_x_rot, cntr2_x_rot, cntr3_x_rot, cntr4_x_rot),
+    y = c(cntr1_y_rot, cntr2_y_rot, cntr3_y_rot, cntr4_y_rot))
   
   #Circle qualities pre-selected based on visual salience
   circle <- base_circle(1.8, 9, .1) 

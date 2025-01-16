@@ -182,7 +182,7 @@ adjust_perimeter <- function(circle, target_perimeter) {
   return(circle)
 }
 
-base_circle <- function(radius = 5, target_perimeter = 20, deviation_factor = 0.1) {
+base_circle <- function(radius, target_perimeter, deviation_factor) {
   circle <- generate_circle(radius)
   circle <- add_deviation_to_circle(circle, deviation_factor)
   circle <- adjust_perimeter(circle, target_perimeter)
@@ -206,7 +206,9 @@ rot <- function(df, angle_deg) {
   df_rotated <- df |>
     mutate(
       x_rot = V1 * cos(angle_rad) - V2 * sin(angle_rad),
-      y_rot = V1 * sin(angle_rad) + V2 * cos(angle_rad)
+      y_rot = V1 * sin(angle_rad) + V2 * cos(angle_rad),
+      V1 = x_rot, 
+      V2 = y_rot
     )
   
   return(df_rotated)
@@ -214,7 +216,7 @@ rot <- function(df, angle_deg) {
 
 
 #Map creation function
-create_map = function(a_idx, col, starting_angle, int_nonint) {
+create_map = function(a_idx, col, starting_angle, intuition) {
   #Index for D country is 3 after index for A country -- select damage levels
   d_idx <- a_idx + 3
   props <- scenarios[a_idx:d_idx]
@@ -282,7 +284,7 @@ create_map = function(a_idx, col, starting_angle, int_nonint) {
   
   #Plot, store to object
   map <- ggplot() +
-    geom_polygon(circle, mapping = aes(x=x, y=y), fill = "gray") +
+    geom_polygon(circle, mapping = aes(x=x, y=y), fill = "grey90") +
     geom_polygon(data = coords1, aes(x = V1, y = V2, fill = damage)) +
     geom_polygon(data = coords2, aes(x = V1, y = V2, fill = damage)) +
     geom_polygon(data = coords3, aes(x = V1, y = V2, fill = damage)) +
@@ -291,28 +293,28 @@ create_map = function(a_idx, col, starting_angle, int_nonint) {
     labs(fill = "Damage") +
     coord_fixed() 
   
+  if (intuition == "int") {
+    rev = 1
+  } else {
+    rev = -1
+  }
+  
   if (col == "blues") { #Blue color map
-    if (int_nonint == "int") {
-      map_col <- map +
-        scale_fill_distiller(direction = 1, palette = "Blues", limits = c(0, 100))} 
-    else {
-      map_col <- map +
-        scale_fill_distiller(direction = -1, palette = "Blues", limits = c(0, 100))}
-    }
+    map_col <- map +
+      scale_fill_distiller(direction = rev, palette = "Blues", limits = c(0, 100))}
   else { #Rocket color map
-    if (int_nonint == "int") {
-      map_col <- map +
-        scale_fill_viridis_c(option = "rocket", direction = 1, limits = c(0, 100))}
-      else {
-      map_col <- map +
-        scale_fill_viridis_c(option = "rocket", direction = -1, limits = c(0, 100))}
+    map_col <- map +
+      scale_fill_viridis_c(option = "rocket", direction = 1, limits = c(0, 100))
   }
 
   #Add void theme to eliminate grid lines, axes, etc. 
   #Q - add white background? (Currently transparent background)
   map_col <- map_col + 
     theme_void() +  
-    theme(plot.background = element_rect(fill = "white", color = NA))
+    theme(plot.background = element_rect(fill = "white", color = NA),
+          legend.key.size = unit(.9, 'cm'), 
+          legend.text = element_text(size = 12), 
+          legend.title = element_text(size = 20))
   return(map_col)
 }
 
@@ -339,8 +341,7 @@ download_map = function(map, a_idx, intuition, col, i) {
 }
 
 #Scenario damage levels
-scenarios <- c(c(25,25,25,25),c(40,40,10,10),c(10,10,40,40),c(40,25,25,10),c(10,25,25,40),c(25,25,10,40),
-               c(75,75,75,75),c(60,60,90,90),c(90,90,60,60),c(60,75,75,90),c(90,75,75,60),c(75,75,90,60))
+scenarios <- c(c(25,25,25,25),c(40,40,10,10),c(10,10,40,40),c(40,25,25,10),c(10,25,25,40),c(25,25,10,40))
 #Possible indices of country A for each scenario 
 scenario_a_indx <- c(1,5,9,13,17,21)
 #Differentiating between intuititon levels and color schemes 
@@ -370,7 +371,7 @@ for (a_idx in scenario_a_indx) {
       for (i in iter) {
         starting_angle = starting_angle_arr[i]
         
-        map <- create_map(a_idx, col, starting_angle, int_nonint)
+        map <- create_map(a_idx, col, starting_angle, intuition)
         
         filename <- download_map(map, a_idx, intuition, col, i)
         

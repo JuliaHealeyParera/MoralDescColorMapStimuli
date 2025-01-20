@@ -1,158 +1,10 @@
-library(sp)
 library(tidyverse)
-library(ggforce)
-library(sf)
-library(tidycensus)
-library(units)
-library(pliman)
 library(RColorBrewer)
 library(viridis)
 library(here)
 
-### IDENTIFYING REGIONS
-#Find similar area distributions using US Counties
-us_county_sf = get_acs(geography = "county", variables = c("totalpop" = "B01001A_001"),
-                       geometry= T) # from census, use load_variables() to find names
-us_county_sf = us_county_sf |> select(-variable, -moe) |> rename(total_pop = estimate, place_name = NAME)
-us_county_sf = us_county_sf |> mutate(state_name = place_name |> str_extract("[A-Za-z ]+$") |> str_trim())
-us_county_sf |> st_set_geometry(NULL) |> count(state_name)
-
-#Example US
-us_cont_county_sf = us_county_sf |> filter(!(state_name %in% c("Puerto Rico", "Hawaii", "Alaska"))) 
-us_cont_county_sf|> st_geometry() |> plot()
-
-
-#Selecting most circular states via maximum radius calculation
-max_dist = function(geo, cntr){
-  points_list <- NULL
-  points_list <- data.frame(st_cast(geo, "POINT"))
-  points_list <- points_list |>
-    mutate(dist = st_distance(geometry, cntr))
-  maximum = max(points_list$dist)
-  return(maximum)
-}
-
-#Calculate: 
-# 1) Actual polygon area
-# 2) Area of smallest possible circle that can cover polygon
-# 3) Ratio of actual/ideal area to identify most circular regions
-#Generating this for entire US takes too long--select subset of states
-#Kentucky
-us_cont_county_sf_ky <- us_cont_county_sf |>
-  filter(str_detect(state_name, "Kentucky")) |>
-  rowwise() |>
-  mutate(center = st_centroid(geometry),
-         max_dist = max_dist(geometry, center)) |>
-  ungroup()
-
-us_cont_county_sf_ky <- us_cont_county_sf_ky |>
-  rowwise() |>
-  mutate(area = st_area(geometry),
-         possible_area = pi*max_dist*max_dist,
-         area_ratio = area / possible_area)
-
-#West Virginia
-us_cont_county_sf_wv <- us_cont_county_sf |>
-  filter(str_detect(state_name, "West Virginia")) |>
-  rowwise() |>
-  mutate(center = st_centroid(geometry),
-         max_dist = max_dist(geometry, center)) |>
-  ungroup()
-
-us_cont_county_sf_wv <- us_cont_county_sf_wv |>
-  rowwise() |>
-  mutate(area = st_area(geometry),
-         possible_area = pi*max_dist*max_dist,
-         area_ratio = area / possible_area)
-
-#Virginia
-us_cont_county_sf_va <- us_cont_county_sf |>
-  filter(str_detect(state_name, "Virginia")) |>
-  rowwise() |>
-  mutate(center = st_centroid(geometry),
-         max_dist = max_dist(geometry, center)) |>
-  ungroup()
-
-us_cont_county_sf_va <- us_cont_county_sf_va |>
-  rowwise() |>
-  mutate(area = st_area(geometry),
-         possible_area = pi*max_dist*max_dist,
-         area_ratio = area / possible_area)
-
-#Georgia
-us_cont_county_sf_ga <- us_cont_county_sf |>
-  filter(str_detect(state_name, "Georgia")) |>
-  rowwise() |>
-  mutate(center = st_centroid(geometry),
-         max_dist = max_dist(geometry, center)) |>
-  ungroup()
-
-us_cont_county_sf_ga <- us_cont_county_sf_ga |>
-  rowwise() |>
-  mutate(area = st_area(geometry),
-         possible_area = pi*max_dist*max_dist,
-         area_ratio = area / possible_area)
-
-#Tennessee
-us_cont_county_sf_tn <- us_cont_county_sf |>
-  filter(str_detect(state_name, "Tennessee")) |>
-  rowwise() |>
-  mutate(center = st_centroid(geometry),
-         max_dist = max_dist(geometry, center)) |>
-  ungroup()
-
-us_cont_county_sf_tn <- us_cont_county_sf_tn |>
-  rowwise() |>
-  mutate(area = st_area(geometry),
-         possible_area = pi*max_dist*max_dist,
-         area_ratio = area / possible_area)
-
-#North Carolina
-us_cont_county_sf_nc <- us_cont_county_sf |>
-  filter(str_detect(state_name, "North Carolina")) |>
-  rowwise() |>
-  mutate(center = st_centroid(geometry),
-         max_dist = max_dist(geometry, center)) |>
-  ungroup()
-
-us_cont_county_sf_nc <- us_cont_county_sf_nc |>
-  rowwise() |>
-  mutate(area = st_area(geometry),
-         possible_area = pi*max_dist*max_dist,
-         area_ratio = area / possible_area)
-
-#Combined into one df
-all <- bind_rows(us_cont_county_sf_ky, 
-                 us_cont_county_sf_wv, 
-                 us_cont_county_sf_va, 
-                 us_cont_county_sf_ga, 
-                 us_cont_county_sf_tn, 
-                 us_cont_county_sf_nc)
-
-#Best four states
-all_slice_12 <- all |>
-  arrange(desc(area_ratio)) |>
-  slice_head(n=25) |>
-  filter((GEOID %in% 
-             c(47087, 
-               37145,
-               47051,
-               37033)))
-
-#Area scaling
-all_slice_12 <- all_slice_12 |>
-  rowwise() |>
-  mutate(
-    geometry = st_transform(geometry, 32618),
-    area = st_area(geometry),
-    area_coef = 4500 / area,
-    area_coef = drop_units(area_coef),
-    center = st_centroid(geometry),
-    geometry = geometry - center,
-    center = st_centroid(geometry),
-    geometry = geometry * sqrt(area_coef) / 100)
-
-###BASE POLYGON CODE - separated for readability in basepolygon_separate.R
+###CIRCLE GENERATION###
+#Helper functions
 generate_circle <- function(radius) {
   num_points <- 100  # Number of points along the circle
   angles <- seq(0, 2 * pi, length.out = num_points)
@@ -181,6 +33,7 @@ adjust_perimeter <- function(circle, target_perimeter) {
   return(circle)
 }
 
+#Call this function to generate circle!
 base_circle <- function(radius, target_perimeter, deviation_factor) {
   circle <- generate_circle(radius)
   circle <- add_deviation_to_circle(circle, deviation_factor)
@@ -188,50 +41,32 @@ base_circle <- function(radius, target_perimeter, deviation_factor) {
   return(circle)
 }
 
-###MAP CREATION LOOP
-
-#Reprocess coordinates for plotting
-reprocess_coords = function(country) {
-  coords_poly1 <- as.data.frame(st_coordinates(country$geometry)[, 1:2])
-  coords_cntr <- poly_center(coords_poly1, plot = FALSE)
-  coords_cntr <- as.data.frame(poly_smooth(coords_cntr, plot = FALSE))
-  return(coords_cntr)
-}
-
-#Rotation function
-#For some reason, rotates polygon around both its center and the base circle by angle_deg
-#This is accounted for later on, but would ideally be fixed
+#Polygon rotation helper function
 rot <- function(df, angle_deg) {
   angle_rad <- angle_deg * (pi / 180)
   
   df_rotated <- df |>
     mutate(
-      x_rot = V1 * cos(angle_rad) - V2 * sin(angle_rad),
-      y_rot = V1 * sin(angle_rad) + V2 * cos(angle_rad),
-      V1 = x_rot, 
-      V2 = y_rot
+      x_rot = x * cos(angle_rad) - y * sin(angle_rad),
+      y_rot = x * sin(angle_rad) + y * cos(angle_rad),
+      x = x_rot, 
+      y = y_rot
     )
   
   return(df_rotated)
 }
 
-
-#Map creation function
+###MAP CREATION###
 create_map = function(a_idx, col, starting_angle, intuition) {
   #Index for D country is 3 after index for A country -- select damage levels
   d_idx <- a_idx + 3
   props <- scenarios[a_idx:d_idx]
   
-  #Select four random polygons
-  polys <- all_slice_12 |> 
-    ungroup() |>
-    slice_sample(n = 4, replace = FALSE) 
-
   #Declare polygon objects
-  obj1 <- polys[1, ] 
-  obj2 <- polys[2, ]
-  obj3 <- polys[3, ]
-  obj4 <- polys[4, ]
+  obj1 <- base_circle(.7, 3.4, .055)
+  obj2 <- base_circle(.7, 3.4, .055)
+  obj3 <- base_circle(.7, 3.4, .055)
+  obj4 <- base_circle(.7, 3.4, .055)
   
   #Establish map-wise rotation
   first_obj_rad = starting_angle * pi/180
@@ -254,21 +89,21 @@ create_map = function(a_idx, col, starting_angle, intuition) {
   cntr4_y = sin(fourth_obj_rad)
   
   #Translating polygons to formerly-calculated center coordinates
-  coords1 <- reprocess_coords(obj1) |>
-    mutate(V1 = V1 + cntr1_x,
-           V2 = V2 + cntr1_y,
+  coords1 <- obj1 |>
+    mutate(x = x + cntr1_x,
+           y = y + cntr1_y,
            damage = props[1])
-  coords2 <- reprocess_coords(obj2) |>
-    mutate(V1 = V1 + cntr2_x,
-           V2 = V2 + cntr2_y,
+  coords2 <- obj2 |>
+    mutate(x = x + cntr2_x,
+           y = y + cntr2_y,
            damage = props[2])
-  coords3 <- reprocess_coords(obj3) |>
-    mutate(V1 = V1 + cntr3_x,
-           V2 = V2 + cntr3_y,
+  coords3 <- obj3 |>
+    mutate(x = x + cntr3_x,
+           y = y + cntr3_y,
            damage = props[3])
-  coords4 <- reprocess_coords(obj4) |>
-    mutate(V1 =V1 + cntr4_x,
-           V2 = V2 + cntr4_y,
+  coords4 <- obj4 |>
+    mutate(x = x + cntr4_x,
+           y = y + cntr4_y,
            damage = props[4])
   
   #Rotate polygons by same random amount because of odd rot() functionality
@@ -298,11 +133,11 @@ create_map = function(a_idx, col, starting_angle, intuition) {
   
   #Plot, store to object
   map <- ggplot() +
-    geom_polygon(circle, mapping = aes(x=x, y=y), fill = "grey90", color = "grey80") +
-    geom_polygon(data = coords1, aes(x = V1, y = V2, fill = damage), color  = "grey70") +
-    geom_polygon(data = coords2, aes(x = V1, y = V2, fill = damage), color = "grey70") +
-    geom_polygon(data = coords3, aes(x = V1, y = V2, fill = damage), color = "grey70") +
-    geom_polygon(data = coords4, aes(x = V1, y = V2, fill = damage), color = "grey70") +
+    geom_polygon(circle, mapping = aes(x = x, y = y), fill = "grey90", color = "grey80") +
+    geom_polygon(data = coords1, aes(x = x, y = y, fill = damage), color  = "grey70") +
+    geom_polygon(data = coords2, aes(x = x, y = y, fill = damage), color = "grey70") +
+    geom_polygon(data = coords3, aes(x = x, y = y, fill = damage), color = "grey70") +
+    geom_polygon(data = coords4, aes(x = x, y = y, fill = damage), color = "grey70") +
     geom_text(data = labels, aes(x = x, y = y, label = text), color = "white", size = 12) +
     labs(fill = "Damage") +
     coord_fixed() 
@@ -320,9 +155,8 @@ create_map = function(a_idx, col, starting_angle, intuition) {
     map_col <- map +
       scale_fill_viridis_c(option = "rocket", direction = rev, limits = c(0, 100))
   }
-
+  
   #Add void theme to eliminate grid lines, axes, etc. 
-  #Q - add white background? (Currently transparent background)
   map_col <- map_col + 
     theme_void() +  
     theme(plot.background = element_rect(fill = "white", color = NA),
@@ -331,6 +165,7 @@ create_map = function(a_idx, col, starting_angle, intuition) {
           legend.title = element_text(size = 20))
   return(map_col)
 }
+
 
 #Save map to repository
 download_map = function(map, a_idx, intuition, col, i) {
@@ -409,5 +244,3 @@ map_attributes_edited <- map_attributes |>
 colnames(map_attributes_edited) <- c('intuition', 'colormap', 'version', 'rotation', 'file_name', 'scenario_props')
 
 write.csv(map_attributes_edited, 'map_attributes.csv')
-
-

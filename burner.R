@@ -44,8 +44,8 @@ base_circle <- function(radius, target_perimeter, deviation_factor) {
 }
 
 ggplot() +
-  geom_polygon(circle, mapping = aes(x=x, y=y), fill = "grey90") +
-  geom_polygon(data = coordsnew, aes(x = V1, y = V2, fill = damage)) +
+  geom_polygon(circle, mapping = aes(x=x, y=y), fill = "grey90", color = "grey50") +
+  geom_polygon(data = coords1, aes(x = V1, y = V2, fill = damage), color = "black") +
   scale_fill_distiller(direction = -1, palette = "Blues", limits = c(0, 100)) +
   labs(fill = "Damage") +
   theme_void() +

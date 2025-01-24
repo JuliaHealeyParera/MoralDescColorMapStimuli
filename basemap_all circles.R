@@ -129,7 +129,7 @@ create_map = function(a_idx, col, starting_angle, intuition) {
     y = c(cntr1_y_rot, cntr2_y_rot, cntr3_y_rot, cntr4_y_rot))
   
   #Circle qualities pre-selected based on visual salience
-  circle <- base_circle(1.8, 9, .1) 
+  circle <- base_circle(1.6, 8, .055) 
   
   #Plot, store to object
   map <- ggplot() +
@@ -153,7 +153,7 @@ create_map = function(a_idx, col, starting_angle, intuition) {
       scale_fill_distiller(direction = rev, palette = "Blues", limits = c(0, 100))}
   else { #Rocket color map
     map_col <- map +
-      scale_fill_viridis_c(option = "rocket", direction = rev, limits = c(0, 100))
+      scale_fill_viridis_c(option = "rocket", direction = -rev, limits = c(0, 100))
   }
   
   #Add void theme to eliminate grid lines, axes, etc. 

@@ -123,6 +123,8 @@ create_map = function(starting_angle) {
   #Circle qualities pre-selected based on visual salience
   circle <- base_circle(1.6, 8, .055) 
   
+  uninhabited <- data.frame(text = c("Uninhabited", "Area"), x = c(0, 0), y = c(0.125, -0.125))
+  
   #Plot, store to object
   map <- ggplot() +
     geom_polygon(circle, mapping = aes(x = x, y = y), fill = "grey90", color = "grey80") +
@@ -131,11 +133,11 @@ create_map = function(starting_angle) {
     geom_polygon(data = coords3, aes(x = x, y = y), fill = "white", color = "grey70") +
     geom_polygon(data = coords4, aes(x = x, y = y), fill = "white", color = "grey70") +
     geom_text(data = labels, aes(x = x, y = y, label = text), color = "grey10", size = 12) +
-    labs(fill = "Damage") +
+    geom_text(data = uninhabited, aes(x = x, y = y, label = text), color = "grey10", size = 10)
     coord_fixed() 
-  
+
   #Add void theme to eliminate grid lines, axes, etc. 
-  map <- map + 
+  map <- map + S
     theme_void() +  
     theme(plot.background = element_rect(fill = "white", color = NA),
           legend.key.size = unit(.9, 'cm'), 
@@ -144,7 +146,8 @@ create_map = function(starting_angle) {
   return(map)
 }
 
-blank_base <- create_map(0)
+blank_base <- create_map(0) 
 
 path <- here("map_plots", "blank_base", "blank_example_basemap.png") 
 ggsave(path, plot = map, width = 10, height = 8, dpi = 300)
+

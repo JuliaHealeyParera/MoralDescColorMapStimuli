@@ -2,6 +2,7 @@ library(tidyverse)
 library(RColorBrewer)
 library(viridis)
 library(here)
+library(cowplot)
 
 ###CIRCLE GENERATION###
 #Helper functions
@@ -57,7 +58,7 @@ rot <- function(df, angle_deg) {
 }
 
 ###MAP CREATION###
-create_map = function(starting_angle) {
+create_map = function(starting_angle, idx) {
   #Declare polygon objects
   obj1 <- base_circle(.7, 3.4, .055)
   obj2 <- base_circle(.7, 3.4, .055)
@@ -65,14 +66,10 @@ create_map = function(starting_angle) {
   obj4 <- base_circle(.7, 3.4, .055)
   
   #Establish map-wise rotation
-  first_obj_rad = starting_angle * pi/180
-  second_obj_rad = first_obj_rad + pi/2 
-  third_obj_rad = first_obj_rad + pi
-  fourth_obj_rad = first_obj_rad + 3*pi/2
-  
-  #Choose angle of internal rotation
-  rot_angle <- sample(0:360, size=1)
-  rot_rad = rot_angle * pi/180
+  first_obj_rad = (starting_angle * pi/180) + (9*pi)/2
+  second_obj_rad = first_obj_rad + (3*pi)/2 
+  third_obj_rad = first_obj_rad + (2*pi)/2
+  fourth_obj_rad = first_obj_rad + (pi)/2
   
   #Calculate end-goal center coordinates of each polygon
   cntr1_x = cos(first_obj_rad)
@@ -87,67 +84,156 @@ create_map = function(starting_angle) {
   #Translating polygons to formerly-calculated center coordinates
   coords1 <- obj1 |>
     mutate(x = x + cntr1_x,
-           y = y + cntr1_y)
+           y = y + cntr1_y,
+           damage = 0,
+           yes_no = 0)
   coords2 <- obj2 |>
     mutate(x = x + cntr2_x,
-           y = y + cntr2_y)
+           y = y + cntr2_y,
+           damage = 25., 
+           yes_no = 1)
   coords3 <- obj3 |>
     mutate(x = x + cntr3_x,
-           y = y + cntr3_y)
+           y = y + cntr3_y, 
+           damage = 25, 
+           yes_no = 0)
   coords4 <- obj4 |>
     mutate(x = x + cntr4_x,
-           y = y + cntr4_y)
-  
-  #Rotate polygons by same random amount because of odd rot() functionality
-  coords1 <- rot(coords1, rot_angle)
-  coords2 <- rot(coords2, rot_angle)
-  coords3 <- rot(coords3, rot_angle)
-  coords4 <- rot(coords4, rot_angle)
+           y = y + cntr4_y, 
+           damage = 10, 
+           yes_no = 1)
   
   #Create label overlay with polygon center coordinates
   #Adding rotation from rot() function to label coordinates
-  cntr1_x_rot <- cntr1_x * cos(rot_rad) - cntr1_y * sin(rot_rad)
-  cntr1_y_rot <- cntr1_x * sin(rot_rad) + cntr1_y * cos(rot_rad)
-  cntr2_x_rot <- cntr2_x * cos(rot_rad) - cntr2_y * sin(rot_rad)
-  cntr2_y_rot <- cntr2_x * sin(rot_rad) + cntr2_y * cos(rot_rad)
-  cntr3_x_rot <- cntr3_x * cos(rot_rad) - cntr3_y * sin(rot_rad)
-  cntr3_y_rot <- cntr3_x * sin(rot_rad) + cntr3_y * cos(rot_rad)
-  cntr4_x_rot <- cntr4_x * cos(rot_rad) - cntr4_y * sin(rot_rad)
-  cntr4_y_rot <- cntr4_x * sin(rot_rad) + cntr4_y * cos(rot_rad)
-  
   labels <- data.frame(
     text = c("A", "B", "C", "D"),
-    x = c(cntr1_x_rot, cntr2_x_rot, cntr3_x_rot, cntr4_x_rot),
-    y = c(cntr1_y_rot, cntr2_y_rot, cntr3_y_rot, cntr4_y_rot))
+    x = c(cntr1_x, cntr2_x, cntr3_x, cntr4_x),
+    y = c(cntr1_y, cntr2_y, cntr3_y, cntr4_y))
   
   #Circle qualities pre-selected based on visual salience
   circle <- base_circle(1.6, 8, .055) 
   
   uninhabited <- data.frame(text = c("Uninhabited", "Area"), x = c(0, 0), y = c(0.125, -0.125))
+  yes_no <- data.frame(
+    text = c("yes", "no", 'yes', 'no'), 
+    x =  c(cntr1_x, cntr2_x, cntr3_x, cntr4_x), 
+    y = c(cntr1_y - .15, cntr2_y - .15, cntr3_y - .15, cntr4_y - .15))
   
   #Plot, store to object
-  map <- ggplot() +
-    geom_polygon(circle, mapping = aes(x = x, y = y), fill = "grey90", color = "grey80") +
-    geom_polygon(data = coords1, aes(x = x, y = y), fill = "white", color  = "grey70") +
-    geom_polygon(data = coords2, aes(x = x, y = y), fill = "white", color = "grey70") +
-    geom_polygon(data = coords3, aes(x = x, y = y), fill = "white", color = "grey70") +
-    geom_polygon(data = coords4, aes(x = x, y = y), fill = "white", color = "grey70") +
-    geom_text(data = labels, aes(x = x, y = y, label = text), color = "grey10", size = 12) +
-    geom_text(data = uninhabited, aes(x = x, y = y, label = text), color = "grey10", size = 10)
-    coord_fixed() 
+  if (idx == 0) {
+    map <- ggplot() +
+      geom_polygon(circle, mapping = aes(x = x, y = y), fill = "grey90", color = "grey80") +
+      geom_polygon(data = coords1, aes(x = x, y = y), fill = "white", color  = "grey70") +
+      geom_polygon(data = coords2, aes(x = x, y = y), fill = "white", color = "grey70") +
+      geom_polygon(data = coords3, aes(x = x, y = y), fill = "white", color = "grey70") +
+      geom_polygon(data = coords4, aes(x = x, y = y), fill = "white", color = "grey70") +
+      geom_text(data = labels, aes(x = x, y = y, label = text), color = "grey10", size = 12) +
+      geom_text(data = uninhabited, aes(x = x, y = y, label = text), color = "grey10", size = 10) +
+      coord_fixed()
+  } else if (idx == 1) {
+    map <- ggplot() +
+      geom_polygon(circle, mapping = aes(x = x, y = y), fill = "grey90", color = "grey80") +
+      geom_polygon(data = coords1, aes(x = x, y = y, fill = damage), color  = "black") +
+      geom_polygon(data = coords2, aes(x = x, y = y, fill = damage), color = "grey70") +
+      geom_polygon(data = coords3, aes(x = x, y = y, fill = damage), color = "black") +
+      geom_polygon(data = coords4, aes(x = x, y = y, fill = damage), color = "grey70") +
+      geom_text(data = labels, aes(x = x, y = y, label = text), color = "grey10", size = 12) +
+      scale_fill_distiller(direction = 1, palette = "Blues", limits = c(0, 100)) + 
+      coord_fixed()
+  } else if (idx == 2) {
+    map <- ggplot() +
+      geom_polygon(circle, mapping = aes(x = x, y = y), fill = "grey90", color = "grey80") +
+      geom_polygon(data = coords1, aes(x = x, y = y, fill = damage), alpha = 1, color  = "grey70") +
+      geom_polygon(data = coords2, aes(x = x, y = y, fill = damage), alpha = .5, color = "grey70") +
+      geom_polygon(data = coords3, aes(x = x, y = y, fill = damage), alpha = 1, color = "grey70") +
+      geom_polygon(data = coords4, aes(x = x, y = y, fill = damage), alpha = .5, color = "grey70") +
+      geom_text(data = labels, aes(x = x, y = y, label = text), color = "grey10", size = 12) +
+      scale_fill_distiller(direction = 1, palette = "Blues", limits = c(0, 100)) +
+      guides(alpha = "none") +
+      coord_fixed()
+  } else if (idx == 3) {
+    map <- ggplot() +
+      geom_polygon(circle, mapping = aes(x = x, y = y), fill = "grey90", color = "grey80") +
+      geom_polygon(data = coords1, aes(x = x, y = y, fill = damage), alpha = 1, color  = "grey70") +
+      geom_polygon(data = coords2, aes(x = x, y = y, fill = damage), alpha = .5, color = "grey70") +
+      geom_polygon(data = coords3, aes(x = x, y = y, fill = damage), alpha = 1, color = "grey70") +
+      geom_polygon(data = coords4, aes(x = x, y = y, fill = damage), alpha = .5, color = "grey70") +
+      geom_text(data = labels, aes(x = x, y = y, label = text), color = "grey10", size = 12) +
+      geom_text(data = yes_no, aes(x = x, y = y, label = text), color = "grey10", size = 7) +
+      scale_fill_distiller(direction = 1, palette = "Blues", limits = c(0, 100)) +
+      guides(alpha = "none") +
+      coord_fixed()
+  } else if (idx == 5) {
+    map <- ggplot() +
+      geom_polygon(circle, mapping = aes(x = x, y = y), fill = "grey90", color = "grey80") +
+      geom_polygon(data = coords1, aes(x = x, y = y, fill = damage), color  = "black") +
+      geom_polygon(data = coords2, aes(x = x, y = y, fill = damage), color = "grey70") +
+      geom_polygon(data = coords3, aes(x = x, y = y, fill = damage), color = "black") +
+      geom_polygon(data = coords4, aes(x = x, y = y, fill = damage), color = "grey70") +
+      geom_text(data = labels, aes(x = x, y = y, label = text), color = "grey10", size = 12) +
+      geom_text(data = yes_no, aes(x = x, y = y, label = text), color = "grey10", size = 7) +
+      scale_fill_distiller(direction = 1, palette = "Blues", limits = c(0, 100)) +
+      coord_fixed() 
+  } else if (idx == 6) {
+    map <- ggplot() +
+      geom_polygon(circle, mapping = aes(x = x, y = y), fill = "grey90", color = "grey80") +
+      geom_polygon(data = coords1, aes(x = x, y = y, fill = damage), alpha = 1, color  = "black") +
+      geom_polygon(data = coords2, aes(x = x, y = y, fill = damage), alpha = .5, color = "grey70") +
+      geom_polygon(data = coords3, aes(x = x, y = y, fill = damage), alpha = 1, color = "black") +
+      geom_polygon(data = coords4, aes(x = x, y = y, fill = damage), alpha = .5, color = "grey70") +
+      geom_text(data = labels, aes(x = x, y = y, label = text), color = "grey10", size = 12) +
+      geom_text(data = yes_no, aes(x = x, y = y, label = text), color = "grey10", size = 7) +
+      scale_fill_distiller(direction = 1, palette = "Blues", limits = c(0, 100)) +
+      coord_fixed() 
+  } else {
+      map <- ggplot() +
+        geom_polygon(circle, mapping = aes(x = x, y = y), fill = "grey90", color = "grey80") +
+        geom_polygon(data = coords1, aes(x = x, y = y, fill = damage), color  = "grey70") +
+        geom_polygon(data = coords2, aes(x = x, y = y, fill = damage), color = "grey70") +
+        geom_polygon(data = coords3, aes(x = x, y = y, fill = damage), color = "grey70") +
+        geom_polygon(data = coords4, aes(x = x, y = y, fill = damage), color = "grey70") +
+        geom_text(data = labels, aes(x = x, y = y, label = text), color = "grey10", size = 12) +
+        geom_text(data = yes_no, aes(x = x, y = y, label = text), color = "grey10", size = 7) +
+        scale_fill_distiller(direction = 1, palette = "Blues", limits = c(0, 100)) +
+        coord_fixed() 
+  }
 
   #Add void theme to eliminate grid lines, axes, etc. 
-  map <- map + S
+  map <- map +
     theme_void() +  
     theme(plot.background = element_rect(fill = "white", color = NA),
           legend.key.size = unit(.9, 'cm'), 
           legend.text = element_text(size = 12), 
-          legend.title = element_text(size = 20))
+          legend.title = element_text(size = 20)) +
+    labs(fill = "Damage")
   return(map)
 }
 
-blank_base <- create_map(0) 
+blank_base <- create_map(0, 0) 
+grayed_map <- create_map(0, 2) 
+grayed_and_labeled_map <- create_map(0,3)
+labeled_map <- create_map(0, 7)
+outlined_map <- create_map(0,1)
+outlined_and_labeled_map <- create_map(0,5)
+outline_gray_label_map <- create_map(0,6)
 
 path <- here("map_plots", "blank_base", "blank_example_basemap.png") 
-ggsave(path, plot = map, width = 10, height = 8, dpi = 300)
+ggsave(path, plot = blank_base, width = 10, height = 8, dpi = 300)
 
+grayed_path <- here("map_plots", "vote_prototypes", "grayed_votes.png") 
+ggsave(grayed_path, plot = grayed_map, width = 10, height = 8, dpi = 300)
+
+gray_label_path <- here("map_plots", "vote_prototypes", "grayed_labeled_votes.png") 
+ggsave(gray_label_path, plot = grayed_and_labeled_map, width = 10, height = 8, dpi = 300)
+
+label_path <- here("map_plots", "vote_prototypes", "labeled_votes.png") 
+ggsave(label_path, plot = labeled_map, width = 10, height = 8, dpi = 300)
+
+outline_path <- here("map_plots", "vote_prototypes", "outlined_votes.png") 
+ggsave(outline_path, plot = outlined_map, width = 10, height = 8, dpi = 300)
+
+outline_label_path <- here("map_plots", "vote_prototypes", "outlined_labeled_votes.png") 
+ggsave(outline_label_path, plot = outlined_and_labeled_map, width = 10, height = 8, dpi = 300)
+
+outline_gray_label_path <- here("map_plots", "vote_prototypes", "outlined_labeled_grayed_votes.png") 
+ggsave(outline_gray_label_path, plot = outline_gray_label_map, width = 10, height = 8, dpi = 300)

@@ -90,12 +90,12 @@ create_map = function(starting_angle, idx) {
   coords2 <- obj2 |>
     mutate(x = x + cntr2_x,
            y = y + cntr2_y,
-           damage = 25., 
+           damage = 5, 
            yes_no = 1)
   coords3 <- obj3 |>
     mutate(x = x + cntr3_x,
            y = y + cntr3_y, 
-           damage = 25, 
+           damage = 5, 
            yes_no = 0)
   coords4 <- obj4 |>
     mutate(x = x + cntr4_x,
@@ -109,6 +109,12 @@ create_map = function(starting_angle, idx) {
     text = c("A", "B", "C", "D"),
     x = c(cntr1_x, cntr2_x, cntr3_x, cntr4_x),
     y = c(cntr1_y, cntr2_y, cntr3_y, cntr4_y))
+  #For base map, extra Province label
+  province_lab <- data.frame(
+    text = c("Province", "Province", "Province", "Province"),
+    x = c(cntr1_x, cntr2_x, cntr3_x, cntr4_x),
+    y = c(cntr1_y +.075, cntr2_y + .075, cntr3_y + .075, cntr4_y + .075)
+  )
   
   #Circle qualities pre-selected based on visual salience
   circle <- base_circle(1.6, 8, .055) 
@@ -121,6 +127,8 @@ create_map = function(starting_angle, idx) {
   
   #Plot, store to object
   if (idx == 0) {
+    labels['y'] <- c(cntr1_y - .075, cntr2_y - 0.075, cntr3_y - 0.075, cntr4_y - 0.07)
+    
     map <- ggplot() +
       geom_polygon(circle, mapping = aes(x = x, y = y), fill = "grey90", color = "grey80") +
       geom_polygon(data = coords1, aes(x = x, y = y), fill = "white", color  = "grey70") +
@@ -128,6 +136,7 @@ create_map = function(starting_angle, idx) {
       geom_polygon(data = coords3, aes(x = x, y = y), fill = "white", color = "grey70") +
       geom_polygon(data = coords4, aes(x = x, y = y), fill = "white", color = "grey70") +
       geom_text(data = labels, aes(x = x, y = y, label = text), color = "grey10", size = 12) +
+      geom_text(data = province_lab, aes(x = x, y = y, label = text), color = "grey10", size = 7) +
       geom_text(data = uninhabited, aes(x = x, y = y, label = text), color = "grey10", size = 10) +
       coord_fixed()
   } else if (idx == 1) {
@@ -138,7 +147,7 @@ create_map = function(starting_angle, idx) {
       geom_polygon(data = coords3, aes(x = x, y = y, fill = damage), color = "black") +
       geom_polygon(data = coords4, aes(x = x, y = y, fill = damage), color = "grey70") +
       geom_text(data = labels, aes(x = x, y = y, label = text), color = "grey10", size = 12) +
-      scale_fill_distiller(direction = 1, palette = "Blues", limits = c(0, 100)) + 
+      scale_fill_distiller(direction = 1, palette = "Blues", limits = c(0, 10)) + 
       coord_fixed()
   } else if (idx == 2) {
     map <- ggplot() +
@@ -148,7 +157,7 @@ create_map = function(starting_angle, idx) {
       geom_polygon(data = coords3, aes(x = x, y = y, fill = damage), alpha = 1, color = "grey70") +
       geom_polygon(data = coords4, aes(x = x, y = y, fill = damage), alpha = .5, color = "grey70") +
       geom_text(data = labels, aes(x = x, y = y, label = text), color = "grey10", size = 12) +
-      scale_fill_distiller(direction = 1, palette = "Blues", limits = c(0, 100)) +
+      scale_fill_distiller(direction = 1, palette = "Blues", limits = c(0, 10)) +
       guides(alpha = "none") +
       coord_fixed()
   } else if (idx == 3) {
@@ -160,7 +169,7 @@ create_map = function(starting_angle, idx) {
       geom_polygon(data = coords4, aes(x = x, y = y, fill = damage), alpha = .5, color = "grey70") +
       geom_text(data = labels, aes(x = x, y = y, label = text), color = "grey10", size = 12) +
       geom_text(data = yes_no, aes(x = x, y = y, label = text), color = "grey10", size = 7) +
-      scale_fill_distiller(direction = 1, palette = "Blues", limits = c(0, 100)) +
+      scale_fill_distiller(direction = 1, palette = "Blues", limits = c(0, 10)) +
       guides(alpha = "none") +
       coord_fixed()
   } else if (idx == 5) {
@@ -172,7 +181,7 @@ create_map = function(starting_angle, idx) {
       geom_polygon(data = coords4, aes(x = x, y = y, fill = damage), color = "grey70") +
       geom_text(data = labels, aes(x = x, y = y, label = text), color = "grey10", size = 12) +
       geom_text(data = yes_no, aes(x = x, y = y, label = text), color = "grey10", size = 7) +
-      scale_fill_distiller(direction = 1, palette = "Blues", limits = c(0, 100)) +
+      scale_fill_distiller(direction = 1, palette = "Blues", limits = c(0, 10)) +
       coord_fixed() 
   } else if (idx == 6) {
     map <- ggplot() +
@@ -183,7 +192,7 @@ create_map = function(starting_angle, idx) {
       geom_polygon(data = coords4, aes(x = x, y = y, fill = damage), alpha = .5, color = "grey70") +
       geom_text(data = labels, aes(x = x, y = y, label = text), color = "grey10", size = 12) +
       geom_text(data = yes_no, aes(x = x, y = y, label = text), color = "grey10", size = 7) +
-      scale_fill_distiller(direction = 1, palette = "Blues", limits = c(0, 100)) +
+      scale_fill_distiller(direction = 1, palette = "Blues", limits = c(0, 10)) +
       coord_fixed() 
   } else {
       map <- ggplot() +
@@ -194,7 +203,7 @@ create_map = function(starting_angle, idx) {
         geom_polygon(data = coords4, aes(x = x, y = y, fill = damage), color = "grey70") +
         geom_text(data = labels, aes(x = x, y = y, label = text), color = "grey10", size = 12) +
         geom_text(data = yes_no, aes(x = x, y = y, label = text), color = "grey10", size = 7) +
-        scale_fill_distiller(direction = 1, palette = "Blues", limits = c(0, 100)) +
+        scale_fill_distiller(direction = 1, palette = "Blues", limits = c(0, 10)) +
         coord_fixed() 
   }
 
@@ -205,7 +214,7 @@ create_map = function(starting_angle, idx) {
           legend.key.size = unit(.9, 'cm'), 
           legend.text = element_text(size = 12), 
           legend.title = element_text(size = 20)) +
-    labs(fill = "Damage")
+    labs(fill = "Damage Level")
   return(map)
 }
 

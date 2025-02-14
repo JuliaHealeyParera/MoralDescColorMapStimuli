@@ -119,7 +119,7 @@ create_map = function(starting_angle, idx) {
   #Circle qualities pre-selected based on visual salience
   circle <- base_circle(1.6, 8, .055) 
   
-  uninhabited <- data.frame(text = c("Uninhabited", "Area"), x = c(0, 0), y = c(0.125, -0.125))
+  uninhabited <- data.frame(text = c("Uninhabited", "Area"), x = c(0, 0), y = c(0.1, -0.1))
   yes_no <- data.frame(
     text = c("yes", "no", 'yes', 'no'), 
     x =  c(cntr1_x, cntr2_x, cntr3_x, cntr4_x), 
@@ -135,8 +135,8 @@ create_map = function(starting_angle, idx) {
       geom_polygon(data = coords2, aes(x = x, y = y), fill = "white", color = "grey70") +
       geom_polygon(data = coords3, aes(x = x, y = y), fill = "white", color = "grey70") +
       geom_polygon(data = coords4, aes(x = x, y = y), fill = "white", color = "grey70") +
-      geom_text(data = labels, aes(x = x, y = y, label = text), color = "grey10", size = 12) +
-      geom_text(data = province_lab, aes(x = x, y = y, label = text), color = "grey10", size = 7) +
+      geom_text(data = labels, aes(x = x, y = y, label = text), color = "grey10", size = 11) +
+      geom_text(data = province_lab, aes(x = x, y = y, label = text), color = "grey10", size = 8) +
       geom_text(data = uninhabited, aes(x = x, y = y, label = text), color = "grey10", size = 10) +
       coord_fixed()
   } else if (idx == 1) {

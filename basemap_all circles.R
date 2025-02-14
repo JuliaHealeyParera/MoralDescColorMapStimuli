@@ -150,10 +150,10 @@ create_map = function(a_idx, col, starting_angle, intuition) {
   
   if (col == "blues") { #Blue color map
     map_col <- map +
-      scale_fill_distiller(direction = rev, palette = "Blues", limits = c(0, 100))}
+      scale_fill_distiller(direction = rev, palette = "Blues", limits = c(0, 10))}
   else { #Rocket color map
     map_col <- map +
-      scale_fill_viridis_c(option = "rocket", direction = -rev, limits = c(0, 100))
+      scale_fill_viridis_c(option = "rocket", direction = -rev, limits = c(0, 10))
   }
   
   #Add void theme to eliminate grid lines, axes, etc. 
@@ -190,7 +190,7 @@ download_map = function(map, a_idx, intuition, col, i) {
 }
 
 #Scenario damage levels
-scenarios <- c(c(25,25,25,25),c(40,40,10,10),c(10,10,40,40),c(40,25,25,10),c(10,25,25,40),c(25,25,10,40))
+scenarios <- c(c(2,2,2,2),c(8,8,4,4),c(4,4,8,8),c(8,5,5,2),c(2,5,5,8),c(5,5,2,8))
 #Possible indices of country A for each scenario 
 scenario_a_indx <- c(1,5,9,13,17,21)
 #Differentiating between intuititon levels and color schemes 
@@ -233,12 +233,12 @@ for (a_idx in scenario_a_indx) {
 
 
 map_attributes_edited <- map_attributes |>
-  mutate(scenario_props = case_when(X.1. == 1 ~ '25_25_25_25',
-                                    X.1. == 5 ~ '40_40_10_10',
-                                    X.1. == 9 ~ '10_10_40_40',
-                                    X.1. == 13 ~ '40_25_25_10',
-                                    X.1. == 17 ~ '10_25_25_40',
-                                    X.1. == 21 ~ '25_25_10_40')) |>
+  mutate(scenario_props = case_when(X.1. == 1 ~ '2_2_2_2',
+                                    X.1. == 5 ~ '8_8_4_4',
+                                    X.1. == 9 ~ '4_4_8_8',
+                                    X.1. == 13 ~ '8_5_5_2',
+                                    X.1. == 17 ~ '2_5_5_8',
+                                    X.1. == 21 ~ '5_5_2_8')) |>
   select(-X.1.)
 
 colnames(map_attributes_edited) <- c('intuition', 'colormap', 'version', 'rotation', 'file_name', 'scenario_props')

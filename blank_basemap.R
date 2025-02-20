@@ -60,10 +60,10 @@ rot <- function(df, angle_deg) {
 ###MAP CREATION###
 create_map = function(starting_angle, idx) {
   #Declare polygon objects
-  obj1 <- base_circle(.7, 3.4, .055)
-  obj2 <- base_circle(.7, 3.4, .055)
-  obj3 <- base_circle(.7, 3.4, .055)
-  obj4 <- base_circle(.7, 3.4, .055)
+  obj1 <- base_circle(.85, 3.8, .045)
+  obj2 <- base_circle(.85, 3.8, .045)
+  obj3 <- base_circle(.85, 3.8, .045)
+  obj4 <- base_circle(.85, 3.8, .045)
   
   #Establish map-wise rotation
   first_obj_rad = (starting_angle * pi/180) + (9*pi)/2
@@ -117,7 +117,7 @@ create_map = function(starting_angle, idx) {
   )
   
   #Circle qualities pre-selected based on visual salience
-  circle <- base_circle(1.6, 8, .055) 
+  circle <- base_circle(1.7, 9, .055) 
   
   uninhabited <- data.frame(text = c("Uninhabited", "Area"), x = c(0, 0), y = c(0.1, -0.1))
   yes_no <- data.frame(
@@ -219,6 +219,7 @@ create_map = function(starting_angle, idx) {
 }
 
 blank_base <- create_map(0, 0) 
+blank_base
 grayed_map <- create_map(0, 2) 
 grayed_and_labeled_map <- create_map(0,3)
 labeled_map <- create_map(0, 7)

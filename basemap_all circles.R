@@ -63,10 +63,10 @@ create_map = function(a_idx, col, starting_angle, intuition) {
   props <- scenarios[a_idx:d_idx]
   
   #Declare polygon objects
-  obj1 <- base_circle(.7, 3.4, .055)
-  obj2 <- base_circle(.7, 3.4, .055)
-  obj3 <- base_circle(.7, 3.4, .055)
-  obj4 <- base_circle(.7, 3.4, .055)
+  obj1 <- base_circle(.7, 3.4, .03)
+  obj2 <- base_circle(.7, 3.4, .03)
+  obj3 <- base_circle(.7, 3.4, .03)
+  obj4 <- base_circle(.7, 3.4, .03)
   
   #Establish map-wise rotation
   first_obj_rad = starting_angle * pi/180

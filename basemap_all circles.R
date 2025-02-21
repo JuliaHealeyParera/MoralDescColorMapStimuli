@@ -63,10 +63,10 @@ create_map = function(a_idx, col, starting_angle, intuition) {
   props <- scenarios[a_idx:d_idx]
   
   #Declare polygon objects
-  obj1 <- base_circle(.7, 3.4, .03)
-  obj2 <- base_circle(.7, 3.4, .03)
-  obj3 <- base_circle(.7, 3.4, .03)
-  obj4 <- base_circle(.7, 3.4, .03)
+  obj1 <- base_circle(.85, 3.8, .045)
+  obj2 <- base_circle(.85, 3.8, .045)
+  obj3 <- base_circle(.85, 3.8, .045)
+  obj4 <- base_circle(.85, 3.8, .045)
   
   #Establish map-wise rotation
   first_obj_rad = starting_angle * pi/180
@@ -129,7 +129,7 @@ create_map = function(a_idx, col, starting_angle, intuition) {
     y = c(cntr1_y_rot, cntr2_y_rot, cntr3_y_rot, cntr4_y_rot))
   
   #Circle qualities pre-selected based on visual salience
-  circle <- base_circle(1.6, 8, .055) 
+  circle <- base_circle(1.7, 9, .055) 
   
   #Plot, store to object
   map <- ggplot() +

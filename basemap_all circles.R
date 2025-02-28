@@ -153,7 +153,7 @@ create_map = function(a_idx, col, starting_angle, intuition) {
       scale_fill_distiller(direction = rev, palette = "Blues", limits = c(0, 10))}
   else { #Rocket color map
     map_col <- map +
-      scale_fill_viridis_c(option = "rocket", direction = -rev, limits = c(0, 10))
+      scale_fill_viridis_c(option = "rocket", begin = .2, end = 1, direction = -rev, limits = c(0, 10))
   }
   
   #Add void theme to eliminate grid lines, axes, etc. 

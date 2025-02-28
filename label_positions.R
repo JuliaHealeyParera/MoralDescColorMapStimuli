@@ -89,7 +89,7 @@ create_map = function(starting_angle, idx) {
   coords1 <- obj1 |>
     mutate(x = x + cntr1_x,
            y = y + cntr1_y,
-           damage = 0,
+           damage = 2,
            yes_no = 0)
   coords2 <- obj2 |>
     mutate(x = x + cntr2_x,
@@ -104,7 +104,7 @@ create_map = function(starting_angle, idx) {
   coords4 <- obj4 |>
     mutate(x = x + cntr4_x,
            y = y + cntr4_y, 
-           damage = 10, 
+           damage = 8, 
            yes_no = 1)
   
   #Create label overlay with polygon center coordinates
@@ -121,7 +121,7 @@ create_map = function(starting_angle, idx) {
   
   yes_no <- data.frame(
     state = c('A', 'B', 'C', 'D'),
-    text = c("yes", "no", 'yes', 'no'))
+    text = c("no", "yes", 'no', 'yes'))
     
   labels <- labels |>
     left_join(yes_no, by = join_by(text == state)) |>
@@ -160,13 +160,13 @@ create_map = function(starting_angle, idx) {
       scale_fill_distiller(direction = 1, palette = "Blues", limits = c(0, 10)) +
       coord_fixed()  
   } else if (idx == 2) {
-    #Outside polygons, outside base polygon
+    #Outside polygons, outside base polygon -- asterisk
     labels <- labels |> 
       mutate(y = case_when(text == "A" ~ y+.635,
                            text == "C" ~ y-.635,
                            TRUE ~ y),
-             x = case_when(text == "D" ~ x-.62,
-                           text == "B" ~ x+.62,
+             x = case_when(text == "D" ~ x-.635,
+                           text == "B" ~ x+.635,
                            TRUE ~ x))
     map <- ggplot() +
       geom_polygon(circle, mapping = aes(x = x, y = y), fill = "grey90", color = "grey80") +
@@ -174,20 +174,50 @@ create_map = function(starting_angle, idx) {
       geom_polygon(data = coords2, aes(x = x, y = y, fill = damage), color = "grey70") +
       geom_polygon(data = coords3, aes(x = x, y = y, fill = damage), color = "grey70") +
       geom_polygon(data = coords4, aes(x = x, y = y, fill = damage), color = "grey70") +
+      geom_segment(aes(x = cntr2_x - .075, xend = cntr2_x + .075, y = cntr2_y - .125, yend = cntr2_y - .13)) + 
+      geom_segment(aes(x = cntr4_x - .075, xend = cntr4_x + .075, y = cntr4_y - .125, yend = cntr4_y - .13)) + 
       geom_text(data = labels, aes(x = x, y = y, label = textplot), color = "grey10", size = 12) +
       scale_fill_distiller(direction = 1, palette = "Blues", limits = c(0, 10)) +
       coord_fixed()  
   } else if (idx == 3) {
-    label_circle_a <- generate_circle(.22) |>
+    #Outside polygons, outside base polygon -- underline
+    a_y_adj <- .635
+    c_y_adj <- -.635
+    d_x_adj <- -.6325
+    b_x_adj <- .6325
+    
+    labels <- labels |> 
+      mutate(y = case_when(text == "A" ~ y + a_y_adj,
+                           text == "C" ~ y + c_y_adj,
+                           TRUE ~ y),
+             x = case_when(text == "D" ~ x + d_x_adj,
+                           text == "B" ~ x + b_x_adj,
+                           TRUE ~ x))
+    map <- ggplot() +
+      geom_polygon(circle, mapping = aes(x = x, y = y), fill = "grey90", color = "grey80") +
+      geom_polygon(data = coords1, aes(x = x, y = y, fill = damage), color  = "grey70") +
+      geom_polygon(data = coords2, aes(x = x, y = y, fill = damage), color = "grey70") +
+      geom_polygon(data = coords3, aes(x = x, y = y, fill = damage), color = "grey70") +
+      geom_polygon(data = coords4, aes(x = x, y = y, fill = damage), color = "grey70") +
+      #A - geom_segment(aes(x = cntr1_x - .075, xend = cntr1_x + .075, y = cntr1_y + a_y_adj - .125, yend = cntr1_y + a_y_adj - .13)) + 
+      geom_segment(aes(x = cntr2_x + b_x_adj - .08, xend = cntr2_x + b_x_adj + .08, y = cntr2_y - .15, yend = cntr2_y - .15)) + 
+      #C - geom_segment(aes(x = cntr3_x - .075, xend = cntr3_x + .075, y = cntr3_y + c_y_adj - .125, yend = cntr3_y + c_y_adj - .13)) + 
+      geom_segment(aes(x = cntr4_x + d_x_adj - .08, xend = cntr4_x + d_x_adj + .08, y = cntr4_y - .15, yend = cntr4_y - .15)) + 
+      geom_text(data = labels, aes(x = x, y = y, label = text), color = "grey10", size = 12) +
+      scale_fill_distiller(direction = 1, palette = "Blues", limits = c(0, 10)) +
+      coord_fixed() 
+  }
+  else if (idx == 4) {
+    label_circle_a <- generate_circle(.155) |>
       mutate(x = x + cntr1_x, 
              y = y + cntr1_y)
-    label_circle_b <- generate_circle(.21) |>
+    label_circle_b <- generate_circle(.185) |>
       mutate(x = x + cntr2_x,
              y = y + cntr2_y)
-    label_circle_c <- generate_circle(.21) |> 
+    label_circle_c <- generate_circle(.15) |> 
       mutate(x = x + cntr3_x, 
              y = y + cntr3_y)
-    label_circle_d <- generate_circle(.21) |>
+    label_circle_d <- generate_circle(.185) |>
       mutate(x = x + cntr4_x, 
              y = y + cntr4_y)
     
@@ -197,15 +227,43 @@ create_map = function(starting_angle, idx) {
       geom_polygon(data = coords2, aes(x = x, y = y, fill = damage), color = "grey70") +
       geom_polygon(data = coords3, aes(x = x, y = y, fill = damage), color = "grey70") +
       geom_polygon(data = coords4, aes(x = x, y = y, fill = damage), color = "grey70") +
-      geom_polygon(data = label_circle_a, aes(x = x, y = y), fill = "white", color = "grey70") +
-      geom_polygon(data = label_circle_b, aes(x = x, y = y), fill = "white", color = "grey70") +
-      geom_polygon(data = label_circle_c, aes(x = x, y = y), fill = "white", color = "grey70") +
-      geom_polygon(data = label_circle_d, aes(x = x, y = y), fill = "white", color = "grey70") +
+      geom_polygon(data = label_circle_a, aes(x = x, y = y), fill = "white", color = "white") +
+      geom_polygon(data = label_circle_b, aes(x = x, y = y), fill = "white", color = "white") +
+      geom_polygon(data = label_circle_c, aes(x = x, y = y), fill = "white", color = "white") +
+      geom_polygon(data = label_circle_d, aes(x = x, y = y), fill = "white", color = "white") +
       geom_text(data = labels, aes(x = x, y = y, label = textplot), color = "grey10", size = 12) +
       scale_fill_distiller(direction = 1, palette = "Blues", limits = c(0, 10)) +
-      coord_fixed()
-  } else {
-    #Bold/italic
+      coord_fixed() 
+    } else if (idx == 5) {
+    label_circle_a <- generate_circle(.155) |>
+      mutate(x = x + cntr1_x, 
+             y = y + cntr1_y)
+    label_circle_b <- generate_circle(.185) |>
+      mutate(x = x + cntr2_x,
+             y = y + cntr2_y)
+    label_circle_c <- generate_circle(.15) |> 
+      mutate(x = x + cntr3_x, 
+             y = y + cntr3_y)
+    label_circle_d <- generate_circle(.185) |>
+      mutate(x = x + cntr4_x, 
+             y = y + cntr4_y)
+    
+    map <- ggplot() +
+      geom_polygon(circle, mapping = aes(x = x, y = y), fill = "grey90", color = "grey80") +
+      geom_polygon(data = coords1, aes(x = x, y = y, fill = damage), color  = "grey70") +
+      geom_polygon(data = coords2, aes(x = x, y = y, fill = damage), color = "grey70") +
+      geom_polygon(data = coords3, aes(x = x, y = y, fill = damage), color = "grey70") +
+      geom_polygon(data = coords4, aes(x = x, y = y, fill = damage), color = "grey70") +
+      geom_polygon(data = label_circle_a, aes(x = x, y = y), fill = "white", color = "white") +
+      geom_polygon(data = label_circle_b, aes(x = x, y = y), fill = "white", color = "black") +
+      geom_polygon(data = label_circle_c, aes(x = x, y = y), fill = "white", color = "white") +
+      geom_polygon(data = label_circle_d, aes(x = x, y = y), fill = "white", color = "black") +
+      geom_text(data = labels, aes(x = x, y = y, label = textplot), color = "grey10", size = 12) +
+      scale_fill_distiller(direction = 1, palette = "Blues", limits = c(0, 10)) +
+      coord_fixed() 
+  }
+  else {
+    #Underline
     #To include symbol, switch label = text in geom_text to label = textplot
     vote_yes <- labels |> 
       filter(text.y == "yes")
@@ -221,6 +279,10 @@ create_map = function(starting_angle, idx) {
       geom_text(data = vote_yes, aes(x = x, y = y, label = text), fontface = "bold.italic", color = "black", size = 12) +
       geom_text(data = vote_no, aes(x = x, y = y, label = text), color = "grey15", size = 12) +
       scale_fill_distiller(direction = 1, palette = "Blues", limits = c(0, 10)) +
+      #A - geom_segment(aes(x = cntr1_x - .075, xend = cntr1_x + .075, y = cntr1_y - .125, yend = cntr1_y - .13)) + 
+      geom_segment(aes(x = cntr2_x - .08, xend = cntr2_x + .08, y = cntr2_y - .13, yend = cntr2_y - .13)) + 
+      #C - geom_segment(aes(x = cntr3_x - .075, xend = cntr3_x + .075, y = cntr3_y - .125, yend = cntr3_y - .13)) + 
+      geom_segment(aes(x = cntr4_x - .08, xend = cntr4_x + .08, y = cntr4_y - .13, yend = cntr4_y - .13)) + 
       coord_fixed() 
   }
   
@@ -229,8 +291,10 @@ create_map = function(starting_angle, idx) {
     theme_void() +  
     theme(plot.background = element_rect(fill = "white", color = NA),
           legend.key.size = unit(.9, 'cm'), 
-          legend.text = element_text(size = 12), 
-          legend.title = element_text(size = 20)) +
+          legend.text = element_text(size = 15), 
+          legend.title = element_text(size = 20),
+          legend.title.align = 0.5,
+          legend.margin = margin(t = 15)) +
     labs(fill = "Damage Level")
   return(map)
 }
@@ -238,8 +302,10 @@ create_map = function(starting_angle, idx) {
 labels_inside_base <- create_map(0, 0)
 labels_below_prov <- create_map(0, 1)
 labels_outside_base <- create_map(0, 2)
-white_circle_labels <- create_map(0, 3)
-bold_italic <- create_map(0, 4)
+underline <- create_map(0, 3)
+white_circle_labels <- create_map(0, 4)
+white_circle_outline <- create_map(0,5)
+bold_underline_italic <- create_map(0,6)
 
 path <- here("map_plots", "vote_prototypes", "labels_inside_base.png") 
 ggsave(path, plot = labels_inside_base, width = 10, height = 8, dpi = 300)
@@ -250,8 +316,14 @@ ggsave(path, plot = labels_below_prov, width = 10, height = 8, dpi = 300)
 path <- here("map_plots", "vote_prototypes", "labels_outside_base.png") 
 ggsave(path, plot = labels_outside_base, width = 10, height = 8, dpi = 300)
 
+path <- here("map_plots", "vote_prototypes", "underline.png") 
+ggsave(path, plot = underline, width = 10, height = 8, dpi = 300)
+
 path <- here("map_plots", "vote_prototypes", "white_circle_labels.png") 
 ggsave(path, plot = white_circle_labels, width = 10, height = 8, dpi = 300)
 
+path <- here("map_plots", "vote_prototypes", "white_circle_outline.png") 
+ggsave(path, plot = white_circle_outline, width = 10, height = 8, dpi = 300)
+
 path <- here("map_plots", "vote_prototypes", "bold_italic.png") 
-ggsave(path, plot = bold_italic, width = 10, height = 8, dpi = 300)
+ggsave(path, plot = bold_underline_italic, width = 10, height = 8, dpi = 300)

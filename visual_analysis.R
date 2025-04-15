@@ -451,9 +451,63 @@ temp_prep <- prepped |>
 
 maps_tables <- rbind(temp_prep, pilot)
 
+maps_tables <- maps_tables |> 
+  separate(full_type, into = c("type_part", "damage_lvls"), sep = "_", remove = FALSE) |>
+  separate(intcol, into = c("intuition", "color"), sep = "_", remove = FALSE) |>
+  mutate(intuition = case_when(intcol == "table" ~ "Table", 
+                               grepl('^unint.*', intcol, perl = TRUE) ~ "Unintuitive",
+                               grepl('^int.*', intcol, perl = TRUE) ~ "Intuitive"),
+         color = ifelse(is.na(color), "Table", color),
+         base_line = case_when(
+             question_type %in% c('penalty', 'praiseworthy') ~ 0, 
+             grepl('.*_8642', full_type, perl = TRUE) ~ 40, 
+             grepl('.*_6211', full_type, perl = TRUE) ~ 60, 
+             grepl('.*_4321', full_type, perl = TRUE) ~ 40
+           ),
+         diff = ans - base_line,
+         damage_lvls = paste0('Damage Levels: ', damage_lvls), 
+         intuition = fct_relevel(intuition, c("Table", "Intuitive","Unintuitive")),
+         intcol = fct_relevel(intcol, c("table", "int_blues", "int_rocket", "unint_blues", "unint_rocket")))
+
 #allocation
 alloc_tab <- maps_tables |>
-  filter(grepl('allocation.*', full_type, perl = TRUE))
+  filter(grepl('allocation.*', full_type, perl = TRUE))  |>
+  filter(ans < 300) |> 
+  mutate(color_group = case_when(
+    intcol == "table" ~ "white",
+    intcol %in% c("int_blues", "unint_blues") ~ "brewer",
+    intcol %in% c("int_rocket", "unint_rocket") ~ "rocket"
+  ))
+
+# Plot
+allocation_spread <- ggplot(alloc_tab, aes(x = intcol, y = diff, fill = color_group)) +
+  geom_boxplot(color = "black", alpha = .4) +
+  scale_fill_manual(values = c("white" = "white", "brewer" = "blue", "rocket" = "red")) +  # Map color_group to colors
+  facet_wrap(~damage_lvls) +
+  geom_hline(yintercept = 0, color = "red4", linewidth = 0.45) +
+  scale_x_discrete(
+    labels = c(
+      "table" = "Table",
+      "int_blues" = "",
+      "int_rocket" = "Intuitive",
+      "unint_blues" = "",
+      "unint_rocket" = "Unintuitive"
+    )
+  ) +
+  theme_bw() + 
+  labs(x = "Intuition Level",
+       y = "Difference Between Observed and Proportional Value \nof Resources Allocated to Province A",
+       title = "Unintuitive blues differ from the expected proportional value \nmost sporadically.",
+       fill = "Color Map")
+  theme(
+    panel.spacing = unit(.4, "cm"), # Increase spacing between facets
+    strip.text = element_text(size = 12),  # Optional: Change facet label size
+    strip.background = element_rect(fill = "lightgray")  # Optional: Add background color to facet labels
+  )
+  
+label_path <- here("result_visualizations", "allocation_spread.png") 
+ggsave(label_path, plot = allocation_spread, width = 8, height = 5, dpi = 300)
+
 alloc_tab_repmeas <- aov_ez(
   id = "PROLIFIC_PID",
   dv = "ans",
@@ -465,7 +519,42 @@ summary(alloc_tab_repmeas)
 
 #penalty
 penalty_tab <- maps_tables |>
-  filter(grepl('penalty.*', full_type, perl = TRUE))
+  filter(grepl('penalty.*', full_type, perl = TRUE)) |>
+  filter(ans < 300) |> 
+  mutate(color_group = case_when(
+    intcol == "table" ~ "white",
+    intcol %in% c("int_blues", "unint_blues") ~ "brewer",
+    intcol %in% c("int_rocket", "unint_rocket") ~ "rocket"
+  ))
+
+penalty_spread <- ggplot(penalty_tab, aes(x = intcol, y = diff, fill = color_group)) +
+  geom_boxplot(color = "black", alpha = .4) +
+  scale_fill_manual(values = c("white" = "white", "brewer" = "blue", "rocket" = "red")) +  # Map color_group to colors
+  facet_wrap(~damage_lvls) +
+  scale_x_discrete(
+    labels = c(
+      "table" = "Table",
+      "int_blues" = "",
+      "int_rocket" = "Intuitive",
+      "unint_blues" = "",
+      "unint_rocket" = "Unintuitive"
+    )
+  ) +
+  scale_y_continuous(labels = label_percent(scale = 1)) +  # Format y-axis with % sign
+  theme_bw() + 
+  labs(x = "Intuition Level",
+       y = "Punishment Allocated to Province A",
+       title = "In the 4321 damage scenario, intuitive and unintuitive blues \nresulted in opposite punishment allocations.",
+       fill = "Color Map") +
+  theme(
+    panel.spacing = unit(.4, "cm"), # Increase spacing between facets
+    strip.text = element_text(size = 12),  # Optional: Change facet label size
+    strip.background = element_rect(fill = "lightgray")  # Optional: Add background color to facet labels
+  )
+
+label_path <- here("result_visualizations", "penalty_spread.png") 
+ggsave(label_path, plot = penalty_spread, width = 8, height = 5, dpi = 300)
+
 penalty_tab_repmeas <- aov_ez(
   id = "PROLIFIC_PID",
   dv = "ans",
@@ -477,7 +566,43 @@ summary(penalty_tab_repmeas)
 
 #praiseworthy
 praise_tab <- maps_tables |>
-  filter(grepl('praiseworthy*', full_type, perl = TRUE))
+  filter(grepl('praiseworthy*', full_type, perl = TRUE)) |>
+  filter(ans < 300) |> 
+  mutate(color_group = case_when(
+    intcol == "table" ~ "white",
+    intcol %in% c("int_blues", "unint_blues") ~ "brewer",
+    intcol %in% c("int_rocket", "unint_rocket") ~ "rocket"
+  ))
+
+# Plot
+praise_spread <- ggplot(praise_tab, aes(x = intcol, y = diff, fill = color_group)) +
+  geom_boxplot(color = "black", alpha = .4) +
+  scale_fill_manual(values = c("white" = "white", "brewer" = "blue", "rocket" = "red")) +  # Map color_group to colors
+  facet_wrap(~damage_lvls) +
+  geom_hline(yintercept = 0, color = "red4", linewidth = 0.45) +
+  scale_x_discrete(
+    labels = c(
+      "table" = "Table",
+      "int_blues" = "",
+      "int_rocket" = "Intuitive",
+      "unint_blues" = "",
+      "unint_rocket" = "Unintuitive"
+    )
+  ) +
+  theme_bw() + 
+  labs(x = "Intuition Level",
+       y = "Praiseworthiness and Blameworthiness Ratings /nnfor Province A",
+       title = "Rocket intuitive and unintuitive mappings result in \nsimilar praiseworthiness ratings.",
+       fill = "Color Map") + 
+  theme(
+    panel.spacing = unit(.4, "cm"), # Increase spacing between facets
+    strip.text = element_text(size = 12),  # Optional: Change facet label size
+    strip.background = element_rect(fill = "lightgray")  # Optional: Add background color to facet labels
+)
+
+label_path <- here("result_visualizations", "praise_spread.png") 
+ggsave(label_path, plot = praise_spread, width = 8, height = 5, dpi = 300)
+
 praise_tab_repmeas <- aov_ez(
   id = "PROLIFIC_PID",
   dv = "ans",

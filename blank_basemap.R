@@ -129,15 +129,24 @@ create_map = function(starting_angle, idx) {
   if (idx == 0) {
     labels['y'] <- c(cntr1_y - .075, cntr2_y - 0.075, cntr3_y - 0.075, cntr4_y - 0.07)
     
+    labels_yes <- labels |>
+      filter(text %in% c("D", "A"))
+    
+    labels_no <- labels |> 
+      filter(text %in% c('C', 'B'))
+    
     map <- ggplot() +
       geom_polygon(circle, mapping = aes(x = x, y = y), fill = "grey90", color = "grey80") +
       geom_polygon(data = coords1, aes(x = x, y = y), fill = "white", color  = "grey70") +
       geom_polygon(data = coords2, aes(x = x, y = y), fill = "white", color = "grey70") +
       geom_polygon(data = coords3, aes(x = x, y = y), fill = "white", color = "grey70") +
       geom_polygon(data = coords4, aes(x = x, y = y), fill = "white", color = "grey70") +
-      geom_text(data = labels, aes(x = x, y = y, label = text), color = "grey10", size = 11) +
+      geom_text(data = labels_yes, aes(x = x, y = y, label = text), color = "grey10", size = 11, fontface = "bold.italic") +
+      geom_text(data = labels_no, aes(x = x, y = y, label = text), color = "grey10", size = 11) +
       geom_text(data = province_lab, aes(x = x, y = y, label = text), color = "grey10", size = 8) +
       geom_text(data = uninhabited, aes(x = x, y = y, label = text), color = "grey10", size = 10) +
+      geom_segment(aes(x = cntr1_x - .075, xend = cntr1_x + .075, y = cntr1_y - .1525, yend = cntr1_y - .1525), linewidth = 1.2) + 
+      geom_segment(aes(x = cntr4_x - .075, xend = cntr4_x + .075, y = cntr4_y - .1525, yend = cntr4_y - .1525), linewidth = 1.2) + 
       coord_fixed()
   } else if (idx == 1) {
     map <- ggplot() +
@@ -227,7 +236,7 @@ outlined_map <- create_map(0,1)
 outlined_and_labeled_map <- create_map(0,5)
 outline_gray_label_map <- create_map(0,6)
 
-path <- here("map_plots", "blank_base", "blank_example_basemap.png") 
+path <- here("map_plots", "final", "blank_example_AD.png") 
 ggsave(path, plot = blank_base, width = 10, height = 8, dpi = 300)
 
 grayed_path <- here("map_plots", "vote_prototypes", "grayed_votes.png") 

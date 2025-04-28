@@ -1,8 +1,0 @@
----
-title: "latex"
-format: html
----
-
-$$
-\hat{dist from baseline} = \beta_0 + \beta_1*intuition + \beta_2 * color + \beta_3 *questiontype + \beta_i *MoralDecisionQuestionnaires + \epsilon
-$$

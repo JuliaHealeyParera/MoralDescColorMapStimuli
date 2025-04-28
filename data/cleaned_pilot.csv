@@ -1,0 +1,865 @@
+PROLIFIC_PID,q_num,ans,intuition,damage_lvl,question_type
+67e43f833cbc162990372808,Q260,4,table,8642,allocation
+67e43f833cbc162990372808,Q227,5% penalty,table,8642,penalty
+67e43f833cbc162990372808,Q9...160,Moderately Blameworthy,table,8642,praiseworthy
+67e43f833cbc162990372808,Q257,1,table,6211,allocation
+67e43f833cbc162990372808,Q226,2% penalty,table,6211,penalty
+67e43f833cbc162990372808,Q9...139,Moderately Blameworthy,table,6211,praiseworthy
+67e43f833cbc162990372808,Q255,2,table,4321,allocation
+67e43f833cbc162990372808,Q225,2% penalty,table,4321,penalty
+67e43f833cbc162990372808,Q9...125,Moderately Blameworthy,table,4321,praiseworthy
+67eb1d06413bd17867147769,Q260,40,table,8642,allocation
+67eb1d06413bd17867147769,Q227,no penalty,table,8642,penalty
+67eb1d06413bd17867147769,Q9...160,Moderately Praiseworthy,table,8642,praiseworthy
+67eb1d06413bd17867147769,Q257,50,table,6211,allocation
+67eb1d06413bd17867147769,Q226,no penalty,table,6211,penalty
+67eb1d06413bd17867147769,Q9...139,Very Praiseworthy,table,6211,praiseworthy
+67eb1d06413bd17867147769,Q255,20,table,4321,allocation
+67eb1d06413bd17867147769,Q225,4% penalty,table,4321,penalty
+67eb1d06413bd17867147769,Q9...125,A Little Praiseworthy,table,4321,praiseworthy
+610843dd91193502f775457b,Q260,90,table,8642,allocation
+610843dd91193502f775457b,Q227,no penalty,table,8642,penalty
+610843dd91193502f775457b,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+610843dd91193502f775457b,Q257,80,table,6211,allocation
+610843dd91193502f775457b,Q226,no penalty,table,6211,penalty
+610843dd91193502f775457b,Q9...139,Moderately Praiseworthy,table,6211,praiseworthy
+610843dd91193502f775457b,Q255,10,table,4321,allocation
+610843dd91193502f775457b,Q225,4% penalty,table,4321,penalty
+610843dd91193502f775457b,Q9...125,Moderately Blameworthy,table,4321,praiseworthy
+67e926ff4b842f35ff1e9e83,Q260,40,table,8642,allocation
+67e926ff4b842f35ff1e9e83,Q227,no penalty,table,8642,penalty
+67e926ff4b842f35ff1e9e83,Q9...160,A Little Blameworthy,table,8642,praiseworthy
+67e926ff4b842f35ff1e9e83,Q257,60,table,6211,allocation
+67e926ff4b842f35ff1e9e83,Q226,no penalty,table,6211,penalty
+67e926ff4b842f35ff1e9e83,Q9...139,Very Praiseworthy,table,6211,praiseworthy
+67e926ff4b842f35ff1e9e83,Q255,50,table,4321,allocation
+67e926ff4b842f35ff1e9e83,Q225,no penalty,table,4321,penalty
+67e926ff4b842f35ff1e9e83,Q9...125,Very Blameworthy,table,4321,praiseworthy
+5588d01bfdf99b304dd47ced,Q260,40,table,8642,allocation
+5588d01bfdf99b304dd47ced,Q227,no penalty,table,8642,penalty
+5588d01bfdf99b304dd47ced,Q9...160,Moderately Praiseworthy,table,8642,praiseworthy
+5588d01bfdf99b304dd47ced,Q257,60,table,6211,allocation
+5588d01bfdf99b304dd47ced,Q226,no penalty,table,6211,penalty
+5588d01bfdf99b304dd47ced,Q9...139,Neither,table,6211,praiseworthy
+5588d01bfdf99b304dd47ced,Q255,40,table,4321,allocation
+5588d01bfdf99b304dd47ced,Q225,no penalty,table,4321,penalty
+5588d01bfdf99b304dd47ced,Q9...125,A Little Blameworthy,table,4321,praiseworthy
+67dc51d9451653b8b4662d1f,Q260,22,table,8642,allocation
+67dc51d9451653b8b4662d1f,Q227,2% penalty,table,8642,penalty
+67dc51d9451653b8b4662d1f,Q9...160,Moderately Praiseworthy,table,8642,praiseworthy
+67dc51d9451653b8b4662d1f,Q257,21,table,6211,allocation
+67dc51d9451653b8b4662d1f,Q226,no penalty,table,6211,penalty
+67dc51d9451653b8b4662d1f,Q9...139,A Little Praiseworthy,table,6211,praiseworthy
+67dc51d9451653b8b4662d1f,Q255,4,table,4321,allocation
+67dc51d9451653b8b4662d1f,Q225,no penalty,table,4321,penalty
+67dc51d9451653b8b4662d1f,Q9...125,A Little Praiseworthy,table,4321,praiseworthy
+5ecf40ccb218ec372490e3ea,Q260,100,table,8642,allocation
+5ecf40ccb218ec372490e3ea,Q227,no penalty,table,8642,penalty
+5ecf40ccb218ec372490e3ea,Q9...160,Neither,table,8642,praiseworthy
+5ecf40ccb218ec372490e3ea,Q257,75,table,6211,allocation
+5ecf40ccb218ec372490e3ea,Q226,no penalty,table,6211,penalty
+5ecf40ccb218ec372490e3ea,Q9...139,Neither,table,6211,praiseworthy
+5ecf40ccb218ec372490e3ea,Q255,0,table,4321,allocation
+5ecf40ccb218ec372490e3ea,Q225,no penalty,table,4321,penalty
+5ecf40ccb218ec372490e3ea,Q9...125,A Little Blameworthy,table,4321,praiseworthy
+677d50ee63c5cc384a8579b7,Q260,60,table,8642,allocation
+677d50ee63c5cc384a8579b7,Q227,no penalty,table,8642,penalty
+677d50ee63c5cc384a8579b7,Q9...160,Moderately Praiseworthy,table,8642,praiseworthy
+677d50ee63c5cc384a8579b7,Q257,60,table,6211,allocation
+677d50ee63c5cc384a8579b7,Q226,no penalty,table,6211,penalty
+677d50ee63c5cc384a8579b7,Q9...139,A Little Praiseworthy,table,6211,praiseworthy
+677d50ee63c5cc384a8579b7,Q255,40,table,4321,allocation
+677d50ee63c5cc384a8579b7,Q225,1% penalty,table,4321,penalty
+677d50ee63c5cc384a8579b7,Q9...125,A Little Blameworthy,table,4321,praiseworthy
+67570b014645d710f1e76680,Q260,40,table,8642,allocation
+67570b014645d710f1e76680,Q227,no penalty,table,8642,penalty
+67570b014645d710f1e76680,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+67570b014645d710f1e76680,Q257,40,table,6211,allocation
+67570b014645d710f1e76680,Q226,no penalty,table,6211,penalty
+67570b014645d710f1e76680,Q9...139,A Little Praiseworthy,table,6211,praiseworthy
+67570b014645d710f1e76680,Q255,20,table,4321,allocation
+67570b014645d710f1e76680,Q225,2% penalty,table,4321,penalty
+67570b014645d710f1e76680,Q9...125,A Little Blameworthy,table,4321,praiseworthy
+67a641b91e95222a9cab4af3,Q260,60,table,8642,allocation
+67a641b91e95222a9cab4af3,Q227,2% penalty,table,8642,penalty
+67a641b91e95222a9cab4af3,Q9...160,A Little Blameworthy,table,8642,praiseworthy
+67a641b91e95222a9cab4af3,Q257,60,table,6211,allocation
+67a641b91e95222a9cab4af3,Q226,2% penalty,table,6211,penalty
+67a641b91e95222a9cab4af3,Q9...139,Moderately Praiseworthy,table,6211,praiseworthy
+67a641b91e95222a9cab4af3,Q255,13,table,4321,allocation
+67a641b91e95222a9cab4af3,Q225,1% penalty,table,4321,penalty
+67a641b91e95222a9cab4af3,Q9...125,A Little Blameworthy,table,4321,praiseworthy
+671c1871eb30c87c11b2211a,Q260,50,table,8642,allocation
+671c1871eb30c87c11b2211a,Q227,no penalty,table,8642,penalty
+671c1871eb30c87c11b2211a,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+671c1871eb30c87c11b2211a,Q257,60,table,6211,allocation
+671c1871eb30c87c11b2211a,Q226,3% penalty,table,6211,penalty
+671c1871eb30c87c11b2211a,Q9...139,Moderately Praiseworthy,table,6211,praiseworthy
+671c1871eb30c87c11b2211a,Q255,40,table,4321,allocation
+671c1871eb30c87c11b2211a,Q225,2% penalty,table,4321,penalty
+671c1871eb30c87c11b2211a,Q9...125,Very Blameworthy,table,4321,praiseworthy
+64012ee6e3f2e59aaa36f718,Q260,NA,table,8642,allocation
+64012ee6e3f2e59aaa36f718,Q227,NA,table,8642,penalty
+64012ee6e3f2e59aaa36f718,Q9...160,NA,table,8642,praiseworthy
+64012ee6e3f2e59aaa36f718,Q257,NA,table,6211,allocation
+64012ee6e3f2e59aaa36f718,Q226,NA,table,6211,penalty
+64012ee6e3f2e59aaa36f718,Q9...139,NA,table,6211,praiseworthy
+64012ee6e3f2e59aaa36f718,Q255,NA,table,4321,allocation
+64012ee6e3f2e59aaa36f718,Q225,NA,table,4321,penalty
+64012ee6e3f2e59aaa36f718,Q9...125,NA,table,4321,praiseworthy
+6109917749b14701436e49f9,Q260,60,table,8642,allocation
+6109917749b14701436e49f9,Q227,no penalty,table,8642,penalty
+6109917749b14701436e49f9,Q9...160,Moderately Praiseworthy,table,8642,praiseworthy
+6109917749b14701436e49f9,Q257,45,table,6211,allocation
+6109917749b14701436e49f9,Q226,no penalty,table,6211,penalty
+6109917749b14701436e49f9,Q9...139,Moderately Praiseworthy,table,6211,praiseworthy
+6109917749b14701436e49f9,Q255,40,table,4321,allocation
+6109917749b14701436e49f9,Q225,3% penalty,table,4321,penalty
+6109917749b14701436e49f9,Q9...125,Moderately Blameworthy,table,4321,praiseworthy
+67d3768e33dab46007042d57,Q260,0,table,8642,allocation
+67d3768e33dab46007042d57,Q227,no penalty,table,8642,penalty
+67d3768e33dab46007042d57,Q9...160,Neither,table,8642,praiseworthy
+67d3768e33dab46007042d57,Q257,0,table,6211,allocation
+67d3768e33dab46007042d57,Q226,5% penalty,table,6211,penalty
+67d3768e33dab46007042d57,Q9...139,Moderately Blameworthy,table,6211,praiseworthy
+67d3768e33dab46007042d57,Q255,0,table,4321,allocation
+67d3768e33dab46007042d57,Q225,no penalty,table,4321,penalty
+67d3768e33dab46007042d57,Q9...125,Moderately Blameworthy,table,4321,praiseworthy
+6787ff8a99fd47745c316a41,Q260,40,table,8642,allocation
+6787ff8a99fd47745c316a41,Q227,no penalty,table,8642,penalty
+6787ff8a99fd47745c316a41,Q9...160,Moderately Praiseworthy,table,8642,praiseworthy
+6787ff8a99fd47745c316a41,Q257,80,table,6211,allocation
+6787ff8a99fd47745c316a41,Q226,no penalty,table,6211,penalty
+6787ff8a99fd47745c316a41,Q9...139,Moderately Praiseworthy,table,6211,praiseworthy
+6787ff8a99fd47745c316a41,Q255,80,table,4321,allocation
+6787ff8a99fd47745c316a41,Q225,2% penalty,table,4321,penalty
+6787ff8a99fd47745c316a41,Q9...125,A Little Blameworthy,table,4321,praiseworthy
+67e9d5a12df1eefc679a315a,Q260,70,table,8642,allocation
+67e9d5a12df1eefc679a315a,Q227,4% penalty,table,8642,penalty
+67e9d5a12df1eefc679a315a,Q9...160,A Little Blameworthy,table,8642,praiseworthy
+67e9d5a12df1eefc679a315a,Q257,50,table,6211,allocation
+67e9d5a12df1eefc679a315a,Q226,4% penalty,table,6211,penalty
+67e9d5a12df1eefc679a315a,Q9...139,A Little Praiseworthy,table,6211,praiseworthy
+67e9d5a12df1eefc679a315a,Q255,50,table,4321,allocation
+67e9d5a12df1eefc679a315a,Q225,4% penalty,table,4321,penalty
+67e9d5a12df1eefc679a315a,Q9...125,Neither,table,4321,praiseworthy
+66d9f188cb9e1a9a3a40015d,Q260,50,table,8642,allocation
+66d9f188cb9e1a9a3a40015d,Q227,no penalty,table,8642,penalty
+66d9f188cb9e1a9a3a40015d,Q9...160,Moderately Praiseworthy,table,8642,praiseworthy
+66d9f188cb9e1a9a3a40015d,Q257,25,table,6211,allocation
+66d9f188cb9e1a9a3a40015d,Q226,no penalty,table,6211,penalty
+66d9f188cb9e1a9a3a40015d,Q9...139,A Little Praiseworthy,table,6211,praiseworthy
+66d9f188cb9e1a9a3a40015d,Q255,45,table,4321,allocation
+66d9f188cb9e1a9a3a40015d,Q225,1% penalty,table,4321,penalty
+66d9f188cb9e1a9a3a40015d,Q9...125,Neither,table,4321,praiseworthy
+65f22e728039424910f7eaa8,Q260,60,table,8642,allocation
+65f22e728039424910f7eaa8,Q227,5% penalty,table,8642,penalty
+65f22e728039424910f7eaa8,Q9...160,Neither,table,8642,praiseworthy
+65f22e728039424910f7eaa8,Q257,60,table,6211,allocation
+65f22e728039424910f7eaa8,Q226,5% penalty,table,6211,penalty
+65f22e728039424910f7eaa8,Q9...139,Neither,table,6211,praiseworthy
+65f22e728039424910f7eaa8,Q255,75,table,4321,allocation
+65f22e728039424910f7eaa8,Q225,5% penalty,table,4321,penalty
+65f22e728039424910f7eaa8,Q9...125,A Little Praiseworthy,table,4321,praiseworthy
+55b6a2e5fdf99b350d57360e,Q260,40,table,8642,allocation
+55b6a2e5fdf99b350d57360e,Q227,no penalty,table,8642,penalty
+55b6a2e5fdf99b350d57360e,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+55b6a2e5fdf99b350d57360e,Q257,50,table,6211,allocation
+55b6a2e5fdf99b350d57360e,Q226,no penalty,table,6211,penalty
+55b6a2e5fdf99b350d57360e,Q9...139,Very Praiseworthy,table,6211,praiseworthy
+55b6a2e5fdf99b350d57360e,Q255,25,table,4321,allocation
+55b6a2e5fdf99b350d57360e,Q225,1% penalty,table,4321,penalty
+55b6a2e5fdf99b350d57360e,Q9...125,A Little Blameworthy,table,4321,praiseworthy
+63e548d24319702eba4fc949,Q260,75,table,8642,allocation
+63e548d24319702eba4fc949,Q227,no penalty,table,8642,penalty
+63e548d24319702eba4fc949,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+63e548d24319702eba4fc949,Q257,25,table,6211,allocation
+63e548d24319702eba4fc949,Q226,no penalty,table,6211,penalty
+63e548d24319702eba4fc949,Q9...139,Neither,table,6211,praiseworthy
+63e548d24319702eba4fc949,Q255,25,table,4321,allocation
+63e548d24319702eba4fc949,Q225,3% penalty,table,4321,penalty
+63e548d24319702eba4fc949,Q9...125,Neither,table,4321,praiseworthy
+678f1df528b89f7aa06b930e,Q260,25,table,8642,allocation
+678f1df528b89f7aa06b930e,Q227,no penalty,table,8642,penalty
+678f1df528b89f7aa06b930e,Q9...160,Moderately Praiseworthy,table,8642,praiseworthy
+678f1df528b89f7aa06b930e,Q257,35,table,6211,allocation
+678f1df528b89f7aa06b930e,Q226,no penalty,table,6211,penalty
+678f1df528b89f7aa06b930e,Q9...139,Moderately Praiseworthy,table,6211,praiseworthy
+678f1df528b89f7aa06b930e,Q255,30,table,4321,allocation
+678f1df528b89f7aa06b930e,Q225,no penalty,table,4321,penalty
+678f1df528b89f7aa06b930e,Q9...125,Moderately Blameworthy,table,4321,praiseworthy
+6108bcb974a08a10c085bb5f,Q260,25,table,8642,allocation
+6108bcb974a08a10c085bb5f,Q227,no penalty,table,8642,penalty
+6108bcb974a08a10c085bb5f,Q9...160,Neither,table,8642,praiseworthy
+6108bcb974a08a10c085bb5f,Q257,10,table,6211,allocation
+6108bcb974a08a10c085bb5f,Q226,1% penalty,table,6211,penalty
+6108bcb974a08a10c085bb5f,Q9...139,Neither,table,6211,praiseworthy
+6108bcb974a08a10c085bb5f,Q255,7,table,4321,allocation
+6108bcb974a08a10c085bb5f,Q225,no penalty,table,4321,penalty
+6108bcb974a08a10c085bb5f,Q9...125,Neither,table,4321,praiseworthy
+5fa62963d5f64b209953d321,Q260,75,table,8642,allocation
+5fa62963d5f64b209953d321,Q227,no penalty,table,8642,penalty
+5fa62963d5f64b209953d321,Q9...160,Moderately Praiseworthy,table,8642,praiseworthy
+5fa62963d5f64b209953d321,Q257,90,table,6211,allocation
+5fa62963d5f64b209953d321,Q226,3% penalty,table,6211,penalty
+5fa62963d5f64b209953d321,Q9...139,A Little Blameworthy,table,6211,praiseworthy
+5fa62963d5f64b209953d321,Q255,20,table,4321,allocation
+5fa62963d5f64b209953d321,Q225,4% penalty,table,4321,penalty
+5fa62963d5f64b209953d321,Q9...125,Moderately Blameworthy,table,4321,praiseworthy
+62348c41368404b2ade8312b,Q260,45,table,8642,allocation
+62348c41368404b2ade8312b,Q227,no penalty,table,8642,penalty
+62348c41368404b2ade8312b,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+62348c41368404b2ade8312b,Q257,40,table,6211,allocation
+62348c41368404b2ade8312b,Q226,no penalty,table,6211,penalty
+62348c41368404b2ade8312b,Q9...139,Moderately Praiseworthy,table,6211,praiseworthy
+62348c41368404b2ade8312b,Q255,20,table,4321,allocation
+62348c41368404b2ade8312b,Q225,1% penalty,table,4321,penalty
+62348c41368404b2ade8312b,Q9...125,A Little Blameworthy,table,4321,praiseworthy
+56169e435c62cf000f822c76,Q260,40,table,8642,allocation
+56169e435c62cf000f822c76,Q227,no penalty,table,8642,penalty
+56169e435c62cf000f822c76,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+56169e435c62cf000f822c76,Q257,25,table,6211,allocation
+56169e435c62cf000f822c76,Q226,no penalty,table,6211,penalty
+56169e435c62cf000f822c76,Q9...139,Neither,table,6211,praiseworthy
+56169e435c62cf000f822c76,Q255,10,table,4321,allocation
+56169e435c62cf000f822c76,Q225,no penalty,table,4321,penalty
+56169e435c62cf000f822c76,Q9...125,Neither,table,4321,praiseworthy
+670583c249355f8e6d0d6df8,Q260,20,table,8642,allocation
+670583c249355f8e6d0d6df8,Q227,no penalty,table,8642,penalty
+670583c249355f8e6d0d6df8,Q9...160,A Little Praiseworthy,table,8642,praiseworthy
+670583c249355f8e6d0d6df8,Q257,20,table,6211,allocation
+670583c249355f8e6d0d6df8,Q226,no penalty,table,6211,penalty
+670583c249355f8e6d0d6df8,Q9...139,A Little Praiseworthy,table,6211,praiseworthy
+670583c249355f8e6d0d6df8,Q255,10,table,4321,allocation
+670583c249355f8e6d0d6df8,Q225,2% penalty,table,4321,penalty
+670583c249355f8e6d0d6df8,Q9...125,A Little Blameworthy,table,4321,praiseworthy
+5c40c6084d5aa1000171a64e,Q260,85,table,8642,allocation
+5c40c6084d5aa1000171a64e,Q227,no penalty,table,8642,penalty
+5c40c6084d5aa1000171a64e,Q9...160,Moderately Praiseworthy,table,8642,praiseworthy
+5c40c6084d5aa1000171a64e,Q257,65,table,6211,allocation
+5c40c6084d5aa1000171a64e,Q226,no penalty,table,6211,penalty
+5c40c6084d5aa1000171a64e,Q9...139,A Little Praiseworthy,table,6211,praiseworthy
+5c40c6084d5aa1000171a64e,Q255,20,table,4321,allocation
+5c40c6084d5aa1000171a64e,Q225,1% penalty,table,4321,penalty
+5c40c6084d5aa1000171a64e,Q9...125,A Little Blameworthy,table,4321,praiseworthy
+678b4ac2e72f7d43014a2b5d,Q260,68,table,8642,allocation
+678b4ac2e72f7d43014a2b5d,Q227,no penalty,table,8642,penalty
+678b4ac2e72f7d43014a2b5d,Q9...160,Moderately Praiseworthy,table,8642,praiseworthy
+678b4ac2e72f7d43014a2b5d,Q257,65,table,6211,allocation
+678b4ac2e72f7d43014a2b5d,Q226,no penalty,table,6211,penalty
+678b4ac2e72f7d43014a2b5d,Q9...139,A Little Praiseworthy,table,6211,praiseworthy
+678b4ac2e72f7d43014a2b5d,Q255,40,table,4321,allocation
+678b4ac2e72f7d43014a2b5d,Q225,2% penalty,table,4321,penalty
+678b4ac2e72f7d43014a2b5d,Q9...125,Moderately Blameworthy,table,4321,praiseworthy
+66f58c9493251ae2f43ef088,Q260,50,table,8642,allocation
+66f58c9493251ae2f43ef088,Q227,no penalty,table,8642,penalty
+66f58c9493251ae2f43ef088,Q9...160,Moderately Praiseworthy,table,8642,praiseworthy
+66f58c9493251ae2f43ef088,Q257,60,table,6211,allocation
+66f58c9493251ae2f43ef088,Q226,no penalty,table,6211,penalty
+66f58c9493251ae2f43ef088,Q9...139,Moderately Praiseworthy,table,6211,praiseworthy
+66f58c9493251ae2f43ef088,Q255,30,table,4321,allocation
+66f58c9493251ae2f43ef088,Q225,1% penalty,table,4321,penalty
+66f58c9493251ae2f43ef088,Q9...125,Neither,table,4321,praiseworthy
+665a6d20e4fd69fa455ce3ca,Q260,25,table,8642,allocation
+665a6d20e4fd69fa455ce3ca,Q227,no penalty,table,8642,penalty
+665a6d20e4fd69fa455ce3ca,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+665a6d20e4fd69fa455ce3ca,Q257,25,table,6211,allocation
+665a6d20e4fd69fa455ce3ca,Q226,no penalty,table,6211,penalty
+665a6d20e4fd69fa455ce3ca,Q9...139,Very Praiseworthy,table,6211,praiseworthy
+665a6d20e4fd69fa455ce3ca,Q255,10,table,4321,allocation
+665a6d20e4fd69fa455ce3ca,Q225,5% penalty,table,4321,penalty
+665a6d20e4fd69fa455ce3ca,Q9...125,Very Blameworthy,table,4321,praiseworthy
+61481ecde9840ff139ea4955,Q260,75,table,8642,allocation
+61481ecde9840ff139ea4955,Q227,no penalty,table,8642,penalty
+61481ecde9840ff139ea4955,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+61481ecde9840ff139ea4955,Q257,40,table,6211,allocation
+61481ecde9840ff139ea4955,Q226,no penalty,table,6211,penalty
+61481ecde9840ff139ea4955,Q9...139,A Little Praiseworthy,table,6211,praiseworthy
+61481ecde9840ff139ea4955,Q255,5,table,4321,allocation
+61481ecde9840ff139ea4955,Q225,no penalty,table,4321,penalty
+61481ecde9840ff139ea4955,Q9...125,Neither,table,4321,praiseworthy
+665ca0199c9267eb724e8028,Q260,75,table,8642,allocation
+665ca0199c9267eb724e8028,Q227,no penalty,table,8642,penalty
+665ca0199c9267eb724e8028,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+665ca0199c9267eb724e8028,Q257,40,table,6211,allocation
+665ca0199c9267eb724e8028,Q226,no penalty,table,6211,penalty
+665ca0199c9267eb724e8028,Q9...139,Very Praiseworthy,table,6211,praiseworthy
+665ca0199c9267eb724e8028,Q255,25,table,4321,allocation
+665ca0199c9267eb724e8028,Q225,1% penalty,table,4321,penalty
+665ca0199c9267eb724e8028,Q9...125,A Little Blameworthy,table,4321,praiseworthy
+633c4b810798db1c81abaf2c,Q260,36,table,8642,allocation
+633c4b810798db1c81abaf2c,Q227,no penalty,table,8642,penalty
+633c4b810798db1c81abaf2c,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+633c4b810798db1c81abaf2c,Q257,70,table,6211,allocation
+633c4b810798db1c81abaf2c,Q226,no penalty,table,6211,penalty
+633c4b810798db1c81abaf2c,Q9...139,Moderately Praiseworthy,table,6211,praiseworthy
+633c4b810798db1c81abaf2c,Q255,50,table,4321,allocation
+633c4b810798db1c81abaf2c,Q225,2% penalty,table,4321,penalty
+633c4b810798db1c81abaf2c,Q9...125,Moderately Blameworthy,table,4321,praiseworthy
+60412f7a5f580407f8e6e615,Q260,45,table,8642,allocation
+60412f7a5f580407f8e6e615,Q227,no penalty,table,8642,penalty
+60412f7a5f580407f8e6e615,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+60412f7a5f580407f8e6e615,Q257,60,table,6211,allocation
+60412f7a5f580407f8e6e615,Q226,no penalty,table,6211,penalty
+60412f7a5f580407f8e6e615,Q9...139,Very Praiseworthy,table,6211,praiseworthy
+60412f7a5f580407f8e6e615,Q255,15,table,4321,allocation
+60412f7a5f580407f8e6e615,Q225,3% penalty,table,4321,penalty
+60412f7a5f580407f8e6e615,Q9...125,Very Blameworthy,table,4321,praiseworthy
+6772fdd1faf7d2c4cd4eb1f3,Q260,40,table,8642,allocation
+6772fdd1faf7d2c4cd4eb1f3,Q227,no penalty,table,8642,penalty
+6772fdd1faf7d2c4cd4eb1f3,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+6772fdd1faf7d2c4cd4eb1f3,Q257,60,table,6211,allocation
+6772fdd1faf7d2c4cd4eb1f3,Q226,no penalty,table,6211,penalty
+6772fdd1faf7d2c4cd4eb1f3,Q9...139,Very Praiseworthy,table,6211,praiseworthy
+6772fdd1faf7d2c4cd4eb1f3,Q255,40,table,4321,allocation
+6772fdd1faf7d2c4cd4eb1f3,Q225,1% penalty,table,4321,penalty
+6772fdd1faf7d2c4cd4eb1f3,Q9...125,A Little Blameworthy,table,4321,praiseworthy
+6529bcd74ee9e1df2c5061e4,Q260,50,table,8642,allocation
+6529bcd74ee9e1df2c5061e4,Q227,no penalty,table,8642,penalty
+6529bcd74ee9e1df2c5061e4,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+6529bcd74ee9e1df2c5061e4,Q257,60,table,6211,allocation
+6529bcd74ee9e1df2c5061e4,Q226,no penalty,table,6211,penalty
+6529bcd74ee9e1df2c5061e4,Q9...139,Very Praiseworthy,table,6211,praiseworthy
+6529bcd74ee9e1df2c5061e4,Q255,40,table,4321,allocation
+6529bcd74ee9e1df2c5061e4,Q225,3% penalty,table,4321,penalty
+6529bcd74ee9e1df2c5061e4,Q9...125,Very Blameworthy,table,4321,praiseworthy
+5c2e693a86a578000141ca47,Q260,50,table,8642,allocation
+5c2e693a86a578000141ca47,Q227,no penalty,table,8642,penalty
+5c2e693a86a578000141ca47,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+5c2e693a86a578000141ca47,Q257,60,table,6211,allocation
+5c2e693a86a578000141ca47,Q226,no penalty,table,6211,penalty
+5c2e693a86a578000141ca47,Q9...139,Moderately Praiseworthy,table,6211,praiseworthy
+5c2e693a86a578000141ca47,Q255,40,table,4321,allocation
+5c2e693a86a578000141ca47,Q225,3% penalty,table,4321,penalty
+5c2e693a86a578000141ca47,Q9...125,Neither,table,4321,praiseworthy
+67235e1aad7fdd5fca6840e9,Q260,80,table,8642,allocation
+67235e1aad7fdd5fca6840e9,Q227,no penalty,table,8642,penalty
+67235e1aad7fdd5fca6840e9,Q9...160,Neither,table,8642,praiseworthy
+67235e1aad7fdd5fca6840e9,Q257,70,table,6211,allocation
+67235e1aad7fdd5fca6840e9,Q226,no penalty,table,6211,penalty
+67235e1aad7fdd5fca6840e9,Q9...139,Neither,table,6211,praiseworthy
+67235e1aad7fdd5fca6840e9,Q255,75,table,4321,allocation
+67235e1aad7fdd5fca6840e9,Q225,2% penalty,table,4321,penalty
+67235e1aad7fdd5fca6840e9,Q9...125,A Little Blameworthy,table,4321,praiseworthy
+5e3bb7770e53243ce0376fe1,Q260,45,table,8642,allocation
+5e3bb7770e53243ce0376fe1,Q227,no penalty,table,8642,penalty
+5e3bb7770e53243ce0376fe1,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+5e3bb7770e53243ce0376fe1,Q257,60,table,6211,allocation
+5e3bb7770e53243ce0376fe1,Q226,no penalty,table,6211,penalty
+5e3bb7770e53243ce0376fe1,Q9...139,Moderately Praiseworthy,table,6211,praiseworthy
+5e3bb7770e53243ce0376fe1,Q255,35,table,4321,allocation
+5e3bb7770e53243ce0376fe1,Q225,no penalty,table,4321,penalty
+5e3bb7770e53243ce0376fe1,Q9...125,Moderately Blameworthy,table,4321,praiseworthy
+675516c6c825ed9774877312,Q260,45,table,8642,allocation
+675516c6c825ed9774877312,Q227,no penalty,table,8642,penalty
+675516c6c825ed9774877312,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+675516c6c825ed9774877312,Q257,55,table,6211,allocation
+675516c6c825ed9774877312,Q226,no penalty,table,6211,penalty
+675516c6c825ed9774877312,Q9...139,Very Praiseworthy,table,6211,praiseworthy
+675516c6c825ed9774877312,Q255,30,table,4321,allocation
+675516c6c825ed9774877312,Q225,4% penalty,table,4321,penalty
+675516c6c825ed9774877312,Q9...125,Moderately Blameworthy,table,4321,praiseworthy
+65cf6dbbe3b7c1159d0364e9,Q260,25,table,8642,allocation
+65cf6dbbe3b7c1159d0364e9,Q227,no penalty,table,8642,penalty
+65cf6dbbe3b7c1159d0364e9,Q9...160,Neither,table,8642,praiseworthy
+65cf6dbbe3b7c1159d0364e9,Q257,25,table,6211,allocation
+65cf6dbbe3b7c1159d0364e9,Q226,no penalty,table,6211,penalty
+65cf6dbbe3b7c1159d0364e9,Q9...139,Neither,table,6211,praiseworthy
+65cf6dbbe3b7c1159d0364e9,Q255,15,table,4321,allocation
+65cf6dbbe3b7c1159d0364e9,Q225,no penalty,table,4321,penalty
+65cf6dbbe3b7c1159d0364e9,Q9...125,Neither,table,4321,praiseworthy
+66ce96efd53aee0946b3b87c,Q260,35,table,8642,allocation
+66ce96efd53aee0946b3b87c,Q227,no penalty,table,8642,penalty
+66ce96efd53aee0946b3b87c,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+66ce96efd53aee0946b3b87c,Q257,60,table,6211,allocation
+66ce96efd53aee0946b3b87c,Q226,no penalty,table,6211,penalty
+66ce96efd53aee0946b3b87c,Q9...139,Moderately Praiseworthy,table,6211,praiseworthy
+66ce96efd53aee0946b3b87c,Q255,45,table,4321,allocation
+66ce96efd53aee0946b3b87c,Q225,3% penalty,table,4321,penalty
+66ce96efd53aee0946b3b87c,Q9...125,Moderately Blameworthy,table,4321,praiseworthy
+5f4962321798ec4bf94a655f,Q260,45,table,8642,allocation
+5f4962321798ec4bf94a655f,Q227,no penalty,table,8642,penalty
+5f4962321798ec4bf94a655f,Q9...160,A Little Praiseworthy,table,8642,praiseworthy
+5f4962321798ec4bf94a655f,Q257,40,table,6211,allocation
+5f4962321798ec4bf94a655f,Q226,no penalty,table,6211,penalty
+5f4962321798ec4bf94a655f,Q9...139,A Little Praiseworthy,table,6211,praiseworthy
+5f4962321798ec4bf94a655f,Q255,40,table,4321,allocation
+5f4962321798ec4bf94a655f,Q225,5% penalty,table,4321,penalty
+5f4962321798ec4bf94a655f,Q9...125,Moderately Blameworthy,table,4321,praiseworthy
+5fc17e97c8c4d714655b2c6f,Q260,40,table,8642,allocation
+5fc17e97c8c4d714655b2c6f,Q227,no penalty,table,8642,penalty
+5fc17e97c8c4d714655b2c6f,Q9...160,Moderately Praiseworthy,table,8642,praiseworthy
+5fc17e97c8c4d714655b2c6f,Q257,60,table,6211,allocation
+5fc17e97c8c4d714655b2c6f,Q226,no penalty,table,6211,penalty
+5fc17e97c8c4d714655b2c6f,Q9...139,Moderately Praiseworthy,table,6211,praiseworthy
+5fc17e97c8c4d714655b2c6f,Q255,35,table,4321,allocation
+5fc17e97c8c4d714655b2c6f,Q225,2% penalty,table,4321,penalty
+5fc17e97c8c4d714655b2c6f,Q9...125,A Little Blameworthy,table,4321,praiseworthy
+67bcd2a9ac3df6ca1b2457f0,Q260,50,table,8642,allocation
+67bcd2a9ac3df6ca1b2457f0,Q227,no penalty,table,8642,penalty
+67bcd2a9ac3df6ca1b2457f0,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+67bcd2a9ac3df6ca1b2457f0,Q257,60,table,6211,allocation
+67bcd2a9ac3df6ca1b2457f0,Q226,no penalty,table,6211,penalty
+67bcd2a9ac3df6ca1b2457f0,Q9...139,Very Praiseworthy,table,6211,praiseworthy
+67bcd2a9ac3df6ca1b2457f0,Q255,35,table,4321,allocation
+67bcd2a9ac3df6ca1b2457f0,Q225,2% penalty,table,4321,penalty
+67bcd2a9ac3df6ca1b2457f0,Q9...125,Neither,table,4321,praiseworthy
+6287d1278f5285de4c237d50,Q260,40,table,8642,allocation
+6287d1278f5285de4c237d50,Q227,no penalty,table,8642,penalty
+6287d1278f5285de4c237d50,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+6287d1278f5285de4c237d50,Q257,70,table,6211,allocation
+6287d1278f5285de4c237d50,Q226,no penalty,table,6211,penalty
+6287d1278f5285de4c237d50,Q9...139,Very Praiseworthy,table,6211,praiseworthy
+6287d1278f5285de4c237d50,Q255,25,table,4321,allocation
+6287d1278f5285de4c237d50,Q225,5% penalty,table,4321,penalty
+6287d1278f5285de4c237d50,Q9...125,Moderately Blameworthy,table,4321,praiseworthy
+676e205d9d4ed64ca5e21411,Q260,80,table,8642,allocation
+676e205d9d4ed64ca5e21411,Q227,no penalty,table,8642,penalty
+676e205d9d4ed64ca5e21411,Q9...160,Moderately Praiseworthy,table,8642,praiseworthy
+676e205d9d4ed64ca5e21411,Q257,60,table,6211,allocation
+676e205d9d4ed64ca5e21411,Q226,no penalty,table,6211,penalty
+676e205d9d4ed64ca5e21411,Q9...139,Moderately Praiseworthy,table,6211,praiseworthy
+676e205d9d4ed64ca5e21411,Q255,30,table,4321,allocation
+676e205d9d4ed64ca5e21411,Q225,2% penalty,table,4321,penalty
+676e205d9d4ed64ca5e21411,Q9...125,Moderately Blameworthy,table,4321,praiseworthy
+5d8a29c082fec30001d9c24a,Q260,40,table,8642,allocation
+5d8a29c082fec30001d9c24a,Q227,no penalty,table,8642,penalty
+5d8a29c082fec30001d9c24a,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+5d8a29c082fec30001d9c24a,Q257,50,table,6211,allocation
+5d8a29c082fec30001d9c24a,Q226,no penalty,table,6211,penalty
+5d8a29c082fec30001d9c24a,Q9...139,Moderately Praiseworthy,table,6211,praiseworthy
+5d8a29c082fec30001d9c24a,Q255,30,table,4321,allocation
+5d8a29c082fec30001d9c24a,Q225,3% penalty,table,4321,penalty
+5d8a29c082fec30001d9c24a,Q9...125,Moderately Blameworthy,table,4321,praiseworthy
+65451f64283c55141ad604f9,Q260,65,table,8642,allocation
+65451f64283c55141ad604f9,Q227,no penalty,table,8642,penalty
+65451f64283c55141ad604f9,Q9...160,Moderately Praiseworthy,table,8642,praiseworthy
+65451f64283c55141ad604f9,Q257,55,table,6211,allocation
+65451f64283c55141ad604f9,Q226,no penalty,table,6211,penalty
+65451f64283c55141ad604f9,Q9...139,Moderately Praiseworthy,table,6211,praiseworthy
+65451f64283c55141ad604f9,Q255,35,table,4321,allocation
+65451f64283c55141ad604f9,Q225,1% penalty,table,4321,penalty
+65451f64283c55141ad604f9,Q9...125,A Little Blameworthy,table,4321,praiseworthy
+5969496f06679c00014b818e,Q260,60,table,8642,allocation
+5969496f06679c00014b818e,Q227,5% penalty,table,8642,penalty
+5969496f06679c00014b818e,Q9...160,Very Blameworthy,table,8642,praiseworthy
+5969496f06679c00014b818e,Q257,70,table,6211,allocation
+5969496f06679c00014b818e,Q226,no penalty,table,6211,penalty
+5969496f06679c00014b818e,Q9...139,Very Praiseworthy,table,6211,praiseworthy
+5969496f06679c00014b818e,Q255,40,table,4321,allocation
+5969496f06679c00014b818e,Q225,3% penalty,table,4321,penalty
+5969496f06679c00014b818e,Q9...125,Moderately Blameworthy,table,4321,praiseworthy
+63e576170eb086a90644efb4,Q260,40,table,8642,allocation
+63e576170eb086a90644efb4,Q227,no penalty,table,8642,penalty
+63e576170eb086a90644efb4,Q9...160,Neither,table,8642,praiseworthy
+63e576170eb086a90644efb4,Q257,60,table,6211,allocation
+63e576170eb086a90644efb4,Q226,no penalty,table,6211,penalty
+63e576170eb086a90644efb4,Q9...139,Neither,table,6211,praiseworthy
+63e576170eb086a90644efb4,Q255,40,table,4321,allocation
+63e576170eb086a90644efb4,Q225,1% penalty,table,4321,penalty
+63e576170eb086a90644efb4,Q9...125,Neither,table,4321,praiseworthy
+67ab8d69f73d8857834ac433,Q260,70,table,8642,allocation
+67ab8d69f73d8857834ac433,Q227,no penalty,table,8642,penalty
+67ab8d69f73d8857834ac433,Q9...160,Moderately Praiseworthy,table,8642,praiseworthy
+67ab8d69f73d8857834ac433,Q257,50,table,6211,allocation
+67ab8d69f73d8857834ac433,Q226,3% penalty,table,6211,penalty
+67ab8d69f73d8857834ac433,Q9...139,A Little Praiseworthy,table,6211,praiseworthy
+67ab8d69f73d8857834ac433,Q255,40,table,4321,allocation
+67ab8d69f73d8857834ac433,Q225,3% penalty,table,4321,penalty
+67ab8d69f73d8857834ac433,Q9...125,A Little Blameworthy,table,4321,praiseworthy
+65f780dfe4aa3357ba290914,Q260,70,table,8642,allocation
+65f780dfe4aa3357ba290914,Q227,no penalty,table,8642,penalty
+65f780dfe4aa3357ba290914,Q9...160,Moderately Praiseworthy,table,8642,praiseworthy
+65f780dfe4aa3357ba290914,Q257,60,table,6211,allocation
+65f780dfe4aa3357ba290914,Q226,no penalty,table,6211,penalty
+65f780dfe4aa3357ba290914,Q9...139,Moderately Praiseworthy,table,6211,praiseworthy
+65f780dfe4aa3357ba290914,Q255,40,table,4321,allocation
+65f780dfe4aa3357ba290914,Q225,1% penalty,table,4321,penalty
+65f780dfe4aa3357ba290914,Q9...125,A Little Blameworthy,table,4321,praiseworthy
+63d2094a50ed63bfb3b19fd4,Q260,45,table,8642,allocation
+63d2094a50ed63bfb3b19fd4,Q227,no penalty,table,8642,penalty
+63d2094a50ed63bfb3b19fd4,Q9...160,Moderately Praiseworthy,table,8642,praiseworthy
+63d2094a50ed63bfb3b19fd4,Q257,60,table,6211,allocation
+63d2094a50ed63bfb3b19fd4,Q226,no penalty,table,6211,penalty
+63d2094a50ed63bfb3b19fd4,Q9...139,A Little Praiseworthy,table,6211,praiseworthy
+63d2094a50ed63bfb3b19fd4,Q255,40,table,4321,allocation
+63d2094a50ed63bfb3b19fd4,Q225,1% penalty,table,4321,penalty
+63d2094a50ed63bfb3b19fd4,Q9...125,A Little Blameworthy,table,4321,praiseworthy
+66aa5c3f0d9d6bcf931c3533,Q260,24,table,8642,allocation
+66aa5c3f0d9d6bcf931c3533,Q227,no penalty,table,8642,penalty
+66aa5c3f0d9d6bcf931c3533,Q9...160,A Little Praiseworthy,table,8642,praiseworthy
+66aa5c3f0d9d6bcf931c3533,Q257,17,table,6211,allocation
+66aa5c3f0d9d6bcf931c3533,Q226,no penalty,table,6211,penalty
+66aa5c3f0d9d6bcf931c3533,Q9...139,Neither,table,6211,praiseworthy
+66aa5c3f0d9d6bcf931c3533,Q255,12,table,4321,allocation
+66aa5c3f0d9d6bcf931c3533,Q225,no penalty,table,4321,penalty
+66aa5c3f0d9d6bcf931c3533,Q9...125,A Little Praiseworthy,table,4321,praiseworthy
+66d767c9f152fec7cd93cb55,Q260,25,table,8642,allocation
+66d767c9f152fec7cd93cb55,Q227,no penalty,table,8642,penalty
+66d767c9f152fec7cd93cb55,Q9...160,Moderately Praiseworthy,table,8642,praiseworthy
+66d767c9f152fec7cd93cb55,Q257,50,table,6211,allocation
+66d767c9f152fec7cd93cb55,Q226,no penalty,table,6211,penalty
+66d767c9f152fec7cd93cb55,Q9...139,Moderately Praiseworthy,table,6211,praiseworthy
+66d767c9f152fec7cd93cb55,Q255,40,table,4321,allocation
+66d767c9f152fec7cd93cb55,Q225,no penalty,table,4321,penalty
+66d767c9f152fec7cd93cb55,Q9...125,A Little Blameworthy,table,4321,praiseworthy
+664111b80f16ecedfa33dc04,Q260,70,table,8642,allocation
+664111b80f16ecedfa33dc04,Q227,no penalty,table,8642,penalty
+664111b80f16ecedfa33dc04,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+664111b80f16ecedfa33dc04,Q257,60,table,6211,allocation
+664111b80f16ecedfa33dc04,Q226,no penalty,table,6211,penalty
+664111b80f16ecedfa33dc04,Q9...139,Moderately Praiseworthy,table,6211,praiseworthy
+664111b80f16ecedfa33dc04,Q255,10,table,4321,allocation
+664111b80f16ecedfa33dc04,Q225,1% penalty,table,4321,penalty
+664111b80f16ecedfa33dc04,Q9...125,Neither,table,4321,praiseworthy
+67221d49d821a70da9221744,Q260,31,table,8642,allocation
+67221d49d821a70da9221744,Q227,no penalty,table,8642,penalty
+67221d49d821a70da9221744,Q9...160,Moderately Praiseworthy,table,8642,praiseworthy
+67221d49d821a70da9221744,Q257,6,table,6211,allocation
+67221d49d821a70da9221744,Q226,no penalty,table,6211,penalty
+67221d49d821a70da9221744,Q9...139,A Little Praiseworthy,table,6211,praiseworthy
+67221d49d821a70da9221744,Q255,18,table,4321,allocation
+67221d49d821a70da9221744,Q225,3% penalty,table,4321,penalty
+67221d49d821a70da9221744,Q9...125,Moderately Blameworthy,table,4321,praiseworthy
+66a3f9e04ef0793e01b941d7,Q260,65,table,8642,allocation
+66a3f9e04ef0793e01b941d7,Q227,no penalty,table,8642,penalty
+66a3f9e04ef0793e01b941d7,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+66a3f9e04ef0793e01b941d7,Q257,60,table,6211,allocation
+66a3f9e04ef0793e01b941d7,Q226,no penalty,table,6211,penalty
+66a3f9e04ef0793e01b941d7,Q9...139,Moderately Praiseworthy,table,6211,praiseworthy
+66a3f9e04ef0793e01b941d7,Q255,35,table,4321,allocation
+66a3f9e04ef0793e01b941d7,Q225,2% penalty,table,4321,penalty
+66a3f9e04ef0793e01b941d7,Q9...125,Moderately Blameworthy,table,4321,praiseworthy
+6643fee20b29ef525a53f021,Q260,25,table,8642,allocation
+6643fee20b29ef525a53f021,Q227,no penalty,table,8642,penalty
+6643fee20b29ef525a53f021,Q9...160,Moderately Praiseworthy,table,8642,praiseworthy
+6643fee20b29ef525a53f021,Q257,25,table,6211,allocation
+6643fee20b29ef525a53f021,Q226,no penalty,table,6211,penalty
+6643fee20b29ef525a53f021,Q9...139,Moderately Praiseworthy,table,6211,praiseworthy
+6643fee20b29ef525a53f021,Q255,25,table,4321,allocation
+6643fee20b29ef525a53f021,Q225,3% penalty,table,4321,penalty
+6643fee20b29ef525a53f021,Q9...125,A Little Blameworthy,table,4321,praiseworthy
+6691a5c500af8a7d634133f7,Q260,30,table,8642,allocation
+6691a5c500af8a7d634133f7,Q227,no penalty,table,8642,penalty
+6691a5c500af8a7d634133f7,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+6691a5c500af8a7d634133f7,Q257,60,table,6211,allocation
+6691a5c500af8a7d634133f7,Q226,no penalty,table,6211,penalty
+6691a5c500af8a7d634133f7,Q9...139,Very Praiseworthy,table,6211,praiseworthy
+6691a5c500af8a7d634133f7,Q255,15,table,4321,allocation
+6691a5c500af8a7d634133f7,Q225,no penalty,table,4321,penalty
+6691a5c500af8a7d634133f7,Q9...125,A Little Praiseworthy,table,4321,praiseworthy
+5f7e103122109d09bcb42291,Q260,50,table,8642,allocation
+5f7e103122109d09bcb42291,Q227,no penalty,table,8642,penalty
+5f7e103122109d09bcb42291,Q9...160,A Little Praiseworthy,table,8642,praiseworthy
+5f7e103122109d09bcb42291,Q257,80,table,6211,allocation
+5f7e103122109d09bcb42291,Q226,no penalty,table,6211,penalty
+5f7e103122109d09bcb42291,Q9...139,A Little Praiseworthy,table,6211,praiseworthy
+5f7e103122109d09bcb42291,Q255,30,table,4321,allocation
+5f7e103122109d09bcb42291,Q225,1% penalty,table,4321,penalty
+5f7e103122109d09bcb42291,Q9...125,Neither,table,4321,praiseworthy
+654fe6af3517f92a06444ca5,Q260,50,table,8642,allocation
+654fe6af3517f92a06444ca5,Q227,no penalty,table,8642,penalty
+654fe6af3517f92a06444ca5,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+654fe6af3517f92a06444ca5,Q257,45,table,6211,allocation
+654fe6af3517f92a06444ca5,Q226,no penalty,table,6211,penalty
+654fe6af3517f92a06444ca5,Q9...139,Moderately Praiseworthy,table,6211,praiseworthy
+654fe6af3517f92a06444ca5,Q255,5,table,4321,allocation
+654fe6af3517f92a06444ca5,Q225,5% penalty,table,4321,penalty
+654fe6af3517f92a06444ca5,Q9...125,Moderately Blameworthy,table,4321,praiseworthy
+5731e4005b8b06000f7e36b3,Q260,40,table,8642,allocation
+5731e4005b8b06000f7e36b3,Q227,no penalty,table,8642,penalty
+5731e4005b8b06000f7e36b3,Q9...160,A Little Praiseworthy,table,8642,praiseworthy
+5731e4005b8b06000f7e36b3,Q257,50,table,6211,allocation
+5731e4005b8b06000f7e36b3,Q226,no penalty,table,6211,penalty
+5731e4005b8b06000f7e36b3,Q9...139,A Little Praiseworthy,table,6211,praiseworthy
+5731e4005b8b06000f7e36b3,Q255,25,table,4321,allocation
+5731e4005b8b06000f7e36b3,Q225,4% penalty,table,4321,penalty
+5731e4005b8b06000f7e36b3,Q9...125,Moderately Blameworthy,table,4321,praiseworthy
+66b93ca6468b2cb25b039588,Q260,80,table,8642,allocation
+66b93ca6468b2cb25b039588,Q227,no penalty,table,8642,penalty
+66b93ca6468b2cb25b039588,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+66b93ca6468b2cb25b039588,Q257,35,table,6211,allocation
+66b93ca6468b2cb25b039588,Q226,no penalty,table,6211,penalty
+66b93ca6468b2cb25b039588,Q9...139,Very Praiseworthy,table,6211,praiseworthy
+66b93ca6468b2cb25b039588,Q255,10,table,4321,allocation
+66b93ca6468b2cb25b039588,Q225,5% penalty,table,4321,penalty
+66b93ca6468b2cb25b039588,Q9...125,Moderately Blameworthy,table,4321,praiseworthy
+6720ccb8144152f7c205c2c2,Q260,35,table,8642,allocation
+6720ccb8144152f7c205c2c2,Q227,no penalty,table,8642,penalty
+6720ccb8144152f7c205c2c2,Q9...160,A Little Praiseworthy,table,8642,praiseworthy
+6720ccb8144152f7c205c2c2,Q257,28,table,6211,allocation
+6720ccb8144152f7c205c2c2,Q226,1% penalty,table,6211,penalty
+6720ccb8144152f7c205c2c2,Q9...139,A Little Praiseworthy,table,6211,praiseworthy
+6720ccb8144152f7c205c2c2,Q255,25,table,4321,allocation
+6720ccb8144152f7c205c2c2,Q225,2% penalty,table,4321,penalty
+6720ccb8144152f7c205c2c2,Q9...125,Neither,table,4321,praiseworthy
+5c952f252e2e320019b1aa7b,Q260,35,table,8642,allocation
+5c952f252e2e320019b1aa7b,Q227,no penalty,table,8642,penalty
+5c952f252e2e320019b1aa7b,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+5c952f252e2e320019b1aa7b,Q257,25,table,6211,allocation
+5c952f252e2e320019b1aa7b,Q226,no penalty,table,6211,penalty
+5c952f252e2e320019b1aa7b,Q9...139,Moderately Praiseworthy,table,6211,praiseworthy
+5c952f252e2e320019b1aa7b,Q255,25,table,4321,allocation
+5c952f252e2e320019b1aa7b,Q225,2% penalty,table,4321,penalty
+5c952f252e2e320019b1aa7b,Q9...125,A Little Blameworthy,table,4321,praiseworthy
+62dabc9d3a584120de29162e,Q260,40,table,8642,allocation
+62dabc9d3a584120de29162e,Q227,no penalty,table,8642,penalty
+62dabc9d3a584120de29162e,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+62dabc9d3a584120de29162e,Q257,5,table,6211,allocation
+62dabc9d3a584120de29162e,Q226,1% penalty,table,6211,penalty
+62dabc9d3a584120de29162e,Q9...139,Neither,table,6211,praiseworthy
+62dabc9d3a584120de29162e,Q255,3,table,4321,allocation
+62dabc9d3a584120de29162e,Q225,2% penalty,table,4321,penalty
+62dabc9d3a584120de29162e,Q9...125,A Little Blameworthy,table,4321,praiseworthy
+6150635d3ed88ca13c7df0b3,Q260,30,table,8642,allocation
+6150635d3ed88ca13c7df0b3,Q227,no penalty,table,8642,penalty
+6150635d3ed88ca13c7df0b3,Q9...160,Moderately Praiseworthy,table,8642,praiseworthy
+6150635d3ed88ca13c7df0b3,Q257,55,table,6211,allocation
+6150635d3ed88ca13c7df0b3,Q226,no penalty,table,6211,penalty
+6150635d3ed88ca13c7df0b3,Q9...139,Moderately Praiseworthy,table,6211,praiseworthy
+6150635d3ed88ca13c7df0b3,Q255,30,table,4321,allocation
+6150635d3ed88ca13c7df0b3,Q225,5% penalty,table,4321,penalty
+6150635d3ed88ca13c7df0b3,Q9...125,A Little Blameworthy,table,4321,praiseworthy
+666149cb6a138209b157427b,Q260,65,table,8642,allocation
+666149cb6a138209b157427b,Q227,no penalty,table,8642,penalty
+666149cb6a138209b157427b,Q9...160,Moderately Praiseworthy,table,8642,praiseworthy
+666149cb6a138209b157427b,Q257,75,table,6211,allocation
+666149cb6a138209b157427b,Q226,no penalty,table,6211,penalty
+666149cb6a138209b157427b,Q9...139,Moderately Praiseworthy,table,6211,praiseworthy
+666149cb6a138209b157427b,Q255,35,table,4321,allocation
+666149cb6a138209b157427b,Q225,2% penalty,table,4321,penalty
+666149cb6a138209b157427b,Q9...125,Moderately Blameworthy,table,4321,praiseworthy
+6400d8d5cc4ede5d5619eb4f,Q260,45,table,8642,allocation
+6400d8d5cc4ede5d5619eb4f,Q227,no penalty,table,8642,penalty
+6400d8d5cc4ede5d5619eb4f,Q9...160,Moderately Praiseworthy,table,8642,praiseworthy
+6400d8d5cc4ede5d5619eb4f,Q257,40,table,6211,allocation
+6400d8d5cc4ede5d5619eb4f,Q226,no penalty,table,6211,penalty
+6400d8d5cc4ede5d5619eb4f,Q9...139,A Little Praiseworthy,table,6211,praiseworthy
+6400d8d5cc4ede5d5619eb4f,Q255,15,table,4321,allocation
+6400d8d5cc4ede5d5619eb4f,Q225,3% penalty,table,4321,penalty
+6400d8d5cc4ede5d5619eb4f,Q9...125,Moderately Blameworthy,table,4321,praiseworthy
+65f2671eccdcf67dce54df9f,Q260,40,table,8642,allocation
+65f2671eccdcf67dce54df9f,Q227,no penalty,table,8642,penalty
+65f2671eccdcf67dce54df9f,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+65f2671eccdcf67dce54df9f,Q257,90,table,6211,allocation
+65f2671eccdcf67dce54df9f,Q226,no penalty,table,6211,penalty
+65f2671eccdcf67dce54df9f,Q9...139,Very Praiseworthy,table,6211,praiseworthy
+65f2671eccdcf67dce54df9f,Q255,45,table,4321,allocation
+65f2671eccdcf67dce54df9f,Q225,3% penalty,table,4321,penalty
+65f2671eccdcf67dce54df9f,Q9...125,Moderately Blameworthy,table,4321,praiseworthy
+55f1d57632af74001217014d,Q260,20,table,8642,allocation
+55f1d57632af74001217014d,Q227,no penalty,table,8642,penalty
+55f1d57632af74001217014d,Q9...160,Moderately Praiseworthy,table,8642,praiseworthy
+55f1d57632af74001217014d,Q257,18,table,6211,allocation
+55f1d57632af74001217014d,Q226,no penalty,table,6211,penalty
+55f1d57632af74001217014d,Q9...139,Moderately Praiseworthy,table,6211,praiseworthy
+55f1d57632af74001217014d,Q255,15,table,4321,allocation
+55f1d57632af74001217014d,Q225,no penalty,table,4321,penalty
+55f1d57632af74001217014d,Q9...125,Neither,table,4321,praiseworthy
+678aa80f603c484fc735e2e7,Q260,19,table,8642,allocation
+678aa80f603c484fc735e2e7,Q227,1% penalty,table,8642,penalty
+678aa80f603c484fc735e2e7,Q9...160,A Little Blameworthy,table,8642,praiseworthy
+678aa80f603c484fc735e2e7,Q257,40,table,6211,allocation
+678aa80f603c484fc735e2e7,Q226,3% penalty,table,6211,penalty
+678aa80f603c484fc735e2e7,Q9...139,A Little Praiseworthy,table,6211,praiseworthy
+678aa80f603c484fc735e2e7,Q255,50,table,4321,allocation
+678aa80f603c484fc735e2e7,Q225,no penalty,table,4321,penalty
+678aa80f603c484fc735e2e7,Q9...125,A Little Blameworthy,table,4321,praiseworthy
+668f4963f56b93ef61e2edff,Q260,50,table,8642,allocation
+668f4963f56b93ef61e2edff,Q227,no penalty,table,8642,penalty
+668f4963f56b93ef61e2edff,Q9...160,Moderately Praiseworthy,table,8642,praiseworthy
+668f4963f56b93ef61e2edff,Q257,60,table,6211,allocation
+668f4963f56b93ef61e2edff,Q226,no penalty,table,6211,penalty
+668f4963f56b93ef61e2edff,Q9...139,Moderately Praiseworthy,table,6211,praiseworthy
+668f4963f56b93ef61e2edff,Q255,40,table,4321,allocation
+668f4963f56b93ef61e2edff,Q225,3% penalty,table,4321,penalty
+668f4963f56b93ef61e2edff,Q9...125,Moderately Blameworthy,table,4321,praiseworthy
+66f55772a7312a23f27b3196,Q260,35,table,8642,allocation
+66f55772a7312a23f27b3196,Q227,no penalty,table,8642,penalty
+66f55772a7312a23f27b3196,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+66f55772a7312a23f27b3196,Q257,45,table,6211,allocation
+66f55772a7312a23f27b3196,Q226,no penalty,table,6211,penalty
+66f55772a7312a23f27b3196,Q9...139,Very Praiseworthy,table,6211,praiseworthy
+66f55772a7312a23f27b3196,Q255,35,table,4321,allocation
+66f55772a7312a23f27b3196,Q225,1% penalty,table,4321,penalty
+66f55772a7312a23f27b3196,Q9...125,A Little Blameworthy,table,4321,praiseworthy
+62cc4627b5f80e3f1419b735,Q260,32,table,8642,allocation
+62cc4627b5f80e3f1419b735,Q227,no penalty,table,8642,penalty
+62cc4627b5f80e3f1419b735,Q9...160,Neither,table,8642,praiseworthy
+62cc4627b5f80e3f1419b735,Q257,70,table,6211,allocation
+62cc4627b5f80e3f1419b735,Q226,no penalty,table,6211,penalty
+62cc4627b5f80e3f1419b735,Q9...139,Neither,table,6211,praiseworthy
+62cc4627b5f80e3f1419b735,Q255,60,table,4321,allocation
+62cc4627b5f80e3f1419b735,Q225,no penalty,table,4321,penalty
+62cc4627b5f80e3f1419b735,Q9...125,Neither,table,4321,praiseworthy
+5de5538f8fde1c4dbc951498,Q260,35,table,8642,allocation
+5de5538f8fde1c4dbc951498,Q227,no penalty,table,8642,penalty
+5de5538f8fde1c4dbc951498,Q9...160,Neither,table,8642,praiseworthy
+5de5538f8fde1c4dbc951498,Q257,30,table,6211,allocation
+5de5538f8fde1c4dbc951498,Q226,no penalty,table,6211,penalty
+5de5538f8fde1c4dbc951498,Q9...139,A Little Praiseworthy,table,6211,praiseworthy
+5de5538f8fde1c4dbc951498,Q255,20,table,4321,allocation
+5de5538f8fde1c4dbc951498,Q225,no penalty,table,4321,penalty
+5de5538f8fde1c4dbc951498,Q9...125,A Little Blameworthy,table,4321,praiseworthy
+66de057ab63a3138342ab763,Q260,40,table,8642,allocation
+66de057ab63a3138342ab763,Q227,no penalty,table,8642,penalty
+66de057ab63a3138342ab763,Q9...160,Neither,table,8642,praiseworthy
+66de057ab63a3138342ab763,Q257,40,table,6211,allocation
+66de057ab63a3138342ab763,Q226,no penalty,table,6211,penalty
+66de057ab63a3138342ab763,Q9...139,Neither,table,6211,praiseworthy
+66de057ab63a3138342ab763,Q255,365,table,4321,allocation
+66de057ab63a3138342ab763,Q225,no penalty,table,4321,penalty
+66de057ab63a3138342ab763,Q9...125,Neither,table,4321,praiseworthy
+662ab5263d82351fe034f09c,Q260,40,table,8642,allocation
+662ab5263d82351fe034f09c,Q227,no penalty,table,8642,penalty
+662ab5263d82351fe034f09c,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+662ab5263d82351fe034f09c,Q257,35,table,6211,allocation
+662ab5263d82351fe034f09c,Q226,no penalty,table,6211,penalty
+662ab5263d82351fe034f09c,Q9...139,Very Praiseworthy,table,6211,praiseworthy
+662ab5263d82351fe034f09c,Q255,20,table,4321,allocation
+662ab5263d82351fe034f09c,Q225,2% penalty,table,4321,penalty
+662ab5263d82351fe034f09c,Q9...125,Moderately Blameworthy,table,4321,praiseworthy
+673382e0792b2291c83d1533,Q260,25,table,8642,allocation
+673382e0792b2291c83d1533,Q227,no penalty,table,8642,penalty
+673382e0792b2291c83d1533,Q9...160,A Little Praiseworthy,table,8642,praiseworthy
+673382e0792b2291c83d1533,Q257,20,table,6211,allocation
+673382e0792b2291c83d1533,Q226,5% penalty,table,6211,penalty
+673382e0792b2291c83d1533,Q9...139,A Little Praiseworthy,table,6211,praiseworthy
+673382e0792b2291c83d1533,Q255,10,table,4321,allocation
+673382e0792b2291c83d1533,Q225,5% penalty,table,4321,penalty
+673382e0792b2291c83d1533,Q9...125,Moderately Blameworthy,table,4321,praiseworthy
+67ed7b83632489250d68dc66,Q260,45,table,8642,allocation
+67ed7b83632489250d68dc66,Q227,no penalty,table,8642,penalty
+67ed7b83632489250d68dc66,Q9...160,Moderately Praiseworthy,table,8642,praiseworthy
+67ed7b83632489250d68dc66,Q257,35,table,6211,allocation
+67ed7b83632489250d68dc66,Q226,no penalty,table,6211,penalty
+67ed7b83632489250d68dc66,Q9...139,Moderately Praiseworthy,table,6211,praiseworthy
+67ed7b83632489250d68dc66,Q255,20,table,4321,allocation
+67ed7b83632489250d68dc66,Q225,no penalty,table,4321,penalty
+67ed7b83632489250d68dc66,Q9...125,A Little Praiseworthy,table,4321,praiseworthy
+67e0a40acdfba25af84c0b48,Q260,4,table,8642,allocation
+67e0a40acdfba25af84c0b48,Q227,3% penalty,table,8642,penalty
+67e0a40acdfba25af84c0b48,Q9...160,Moderately Blameworthy,table,8642,praiseworthy
+67e0a40acdfba25af84c0b48,Q257,3,table,6211,allocation
+67e0a40acdfba25af84c0b48,Q226,2% penalty,table,6211,penalty
+67e0a40acdfba25af84c0b48,Q9...139,A Little Blameworthy,table,6211,praiseworthy
+67e0a40acdfba25af84c0b48,Q255,1,table,4321,allocation
+67e0a40acdfba25af84c0b48,Q225,no penalty,table,4321,penalty
+67e0a40acdfba25af84c0b48,Q9...125,Moderately Praiseworthy,table,4321,praiseworthy
+6657584ca6e3645f4a99e753,Q260,45,table,8642,allocation
+6657584ca6e3645f4a99e753,Q227,1% penalty,table,8642,penalty
+6657584ca6e3645f4a99e753,Q9...160,Neither,table,8642,praiseworthy
+6657584ca6e3645f4a99e753,Q257,50,table,6211,allocation
+6657584ca6e3645f4a99e753,Q226,1% penalty,table,6211,penalty
+6657584ca6e3645f4a99e753,Q9...139,Neither,table,6211,praiseworthy
+6657584ca6e3645f4a99e753,Q255,0,table,4321,allocation
+6657584ca6e3645f4a99e753,Q225,5% penalty,table,4321,penalty
+6657584ca6e3645f4a99e753,Q9...125,Neither,table,4321,praiseworthy
+63ce4a983479277bba4987c5,Q260,2,table,8642,allocation
+63ce4a983479277bba4987c5,Q227,2% penalty,table,8642,penalty
+63ce4a983479277bba4987c5,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+63ce4a983479277bba4987c5,Q257,2,table,6211,allocation
+63ce4a983479277bba4987c5,Q226,2% penalty,table,6211,penalty
+63ce4a983479277bba4987c5,Q9...139,A Little Praiseworthy,table,6211,praiseworthy
+63ce4a983479277bba4987c5,Q255,2,table,4321,allocation
+63ce4a983479277bba4987c5,Q225,2% penalty,table,4321,penalty
+63ce4a983479277bba4987c5,Q9...125,Moderately Praiseworthy,table,4321,praiseworthy
+66ba79010fb542c656001b7e,Q260,60,table,8642,allocation
+66ba79010fb542c656001b7e,Q227,no penalty,table,8642,penalty
+66ba79010fb542c656001b7e,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+66ba79010fb542c656001b7e,Q257,60,table,6211,allocation
+66ba79010fb542c656001b7e,Q226,no penalty,table,6211,penalty
+66ba79010fb542c656001b7e,Q9...139,Very Praiseworthy,table,6211,praiseworthy
+66ba79010fb542c656001b7e,Q255,50,table,4321,allocation
+66ba79010fb542c656001b7e,Q225,5% penalty,table,4321,penalty
+66ba79010fb542c656001b7e,Q9...125,Moderately Blameworthy,table,4321,praiseworthy
+671725ffff36a50355a52513,Q260,40,table,8642,allocation
+671725ffff36a50355a52513,Q227,no penalty,table,8642,penalty
+671725ffff36a50355a52513,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+671725ffff36a50355a52513,Q257,60,table,6211,allocation
+671725ffff36a50355a52513,Q226,no penalty,table,6211,penalty
+671725ffff36a50355a52513,Q9...139,Moderately Praiseworthy,table,6211,praiseworthy
+671725ffff36a50355a52513,Q255,50,table,4321,allocation
+671725ffff36a50355a52513,Q225,no penalty,table,4321,penalty
+671725ffff36a50355a52513,Q9...125,Neither,table,4321,praiseworthy
+579f1d3bc9abeb0001af52d8,Q260,55,table,8642,allocation
+579f1d3bc9abeb0001af52d8,Q227,no penalty,table,8642,penalty
+579f1d3bc9abeb0001af52d8,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+579f1d3bc9abeb0001af52d8,Q257,42,table,6211,allocation
+579f1d3bc9abeb0001af52d8,Q226,no penalty,table,6211,penalty
+579f1d3bc9abeb0001af52d8,Q9...139,Moderately Praiseworthy,table,6211,praiseworthy
+579f1d3bc9abeb0001af52d8,Q255,20,table,4321,allocation
+579f1d3bc9abeb0001af52d8,Q225,1% penalty,table,4321,penalty
+579f1d3bc9abeb0001af52d8,Q9...125,Moderately Blameworthy,table,4321,praiseworthy
+56f1d53bf2df32000b8f3748,Q260,25,table,8642,allocation
+56f1d53bf2df32000b8f3748,Q227,no penalty,table,8642,penalty
+56f1d53bf2df32000b8f3748,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+56f1d53bf2df32000b8f3748,Q257,35,table,6211,allocation
+56f1d53bf2df32000b8f3748,Q226,no penalty,table,6211,penalty
+56f1d53bf2df32000b8f3748,Q9...139,A Little Praiseworthy,table,6211,praiseworthy
+56f1d53bf2df32000b8f3748,Q255,30,table,4321,allocation
+56f1d53bf2df32000b8f3748,Q225,no penalty,table,4321,penalty
+56f1d53bf2df32000b8f3748,Q9...125,A Little Praiseworthy,table,4321,praiseworthy
+67df08f55bf39d8387774f2a,Q260,50,table,8642,allocation
+67df08f55bf39d8387774f2a,Q227,no penalty,table,8642,penalty
+67df08f55bf39d8387774f2a,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+67df08f55bf39d8387774f2a,Q257,35,table,6211,allocation
+67df08f55bf39d8387774f2a,Q226,no penalty,table,6211,penalty
+67df08f55bf39d8387774f2a,Q9...139,Moderately Praiseworthy,table,6211,praiseworthy
+67df08f55bf39d8387774f2a,Q255,50,table,4321,allocation
+67df08f55bf39d8387774f2a,Q225,4% penalty,table,4321,penalty
+67df08f55bf39d8387774f2a,Q9...125,Moderately Blameworthy,table,4321,praiseworthy
+678eb97d32409c63e16af155,Q260,40,table,8642,allocation
+678eb97d32409c63e16af155,Q227,5% penalty,table,8642,penalty
+678eb97d32409c63e16af155,Q9...160,Very Praiseworthy,table,8642,praiseworthy
+678eb97d32409c63e16af155,Q257,40,table,6211,allocation
+678eb97d32409c63e16af155,Q226,5% penalty,table,6211,penalty
+678eb97d32409c63e16af155,Q9...139,Very Praiseworthy,table,6211,praiseworthy
+678eb97d32409c63e16af155,Q255,15,table,4321,allocation
+678eb97d32409c63e16af155,Q225,3% penalty,table,4321,penalty
+678eb97d32409c63e16af155,Q9...125,Moderately Blameworthy,table,4321,praiseworthy
+5a0071766e1ea9000124db35,Q260,50,table,8642,allocation
+5a0071766e1ea9000124db35,Q227,4% penalty,table,8642,penalty
+5a0071766e1ea9000124db35,Q9...160,Moderately Blameworthy,table,8642,praiseworthy
+5a0071766e1ea9000124db35,Q257,35,table,6211,allocation
+5a0071766e1ea9000124db35,Q226,3% penalty,table,6211,penalty
+5a0071766e1ea9000124db35,Q9...139,Moderately Blameworthy,table,6211,praiseworthy
+5a0071766e1ea9000124db35,Q255,25,table,4321,allocation
+5a0071766e1ea9000124db35,Q225,3% penalty,table,4321,penalty
+5a0071766e1ea9000124db35,Q9...125,Moderately Blameworthy,table,4321,praiseworthy
+6598942c3d07928cc188ffdb,Q260,80,table,8642,allocation
+6598942c3d07928cc188ffdb,Q227,no penalty,table,8642,penalty
+6598942c3d07928cc188ffdb,Q9...160,A Little Praiseworthy,table,8642,praiseworthy
+6598942c3d07928cc188ffdb,Q257,65,table,6211,allocation
+6598942c3d07928cc188ffdb,Q226,no penalty,table,6211,penalty
+6598942c3d07928cc188ffdb,Q9...139,Neither,table,6211,praiseworthy
+6598942c3d07928cc188ffdb,Q255,30,table,4321,allocation
+6598942c3d07928cc188ffdb,Q225,2% penalty,table,4321,penalty
+6598942c3d07928cc188ffdb,Q9...125,A Little Blameworthy,table,4321,praiseworthy
+63b727ff899db0b1392413ed,Q260,50,table,8642,allocation
+63b727ff899db0b1392413ed,Q227,no penalty,table,8642,penalty
+63b727ff899db0b1392413ed,Q9...160,Neither,table,8642,praiseworthy
+63b727ff899db0b1392413ed,Q257,50,table,6211,allocation
+63b727ff899db0b1392413ed,Q226,no penalty,table,6211,penalty
+63b727ff899db0b1392413ed,Q9...139,Neither,table,6211,praiseworthy
+63b727ff899db0b1392413ed,Q255,35,table,4321,allocation
+63b727ff899db0b1392413ed,Q225,no penalty,table,4321,penalty
+63b727ff899db0b1392413ed,Q9...125,Neither,table,4321,praiseworthy
+NA,Q260,NA,table,8642,allocation
+NA,Q227,NA,table,8642,penalty
+NA,Q9...160,NA,table,8642,praiseworthy
+NA,Q257,NA,table,6211,allocation
+NA,Q226,NA,table,6211,penalty
+NA,Q9...139,NA,table,6211,praiseworthy
+NA,Q255,NA,table,4321,allocation
+NA,Q225,NA,table,4321,penalty
+NA,Q9...125,NA,table,4321,praiseworthy
+63615d4c2e78db0f23208397,Q260,35,table,8642,allocation
+63615d4c2e78db0f23208397,Q227,no penalty,table,8642,penalty
+63615d4c2e78db0f23208397,Q9...160,A Little Praiseworthy,table,8642,praiseworthy
+63615d4c2e78db0f23208397,Q257,20,table,6211,allocation
+63615d4c2e78db0f23208397,Q226,no penalty,table,6211,penalty
+63615d4c2e78db0f23208397,Q9...139,Moderately Blameworthy,table,6211,praiseworthy
+63615d4c2e78db0f23208397,Q255,15,table,4321,allocation
+63615d4c2e78db0f23208397,Q225,no penalty,table,4321,penalty
+63615d4c2e78db0f23208397,Q9...125,A Little Blameworthy,table,4321,praiseworthy

@@ -129,9 +129,9 @@ create_map = function(starting_angle, idx) {
   if (idx == 0) {
     labels['y'] <- c(cntr1_y - .075, cntr2_y - 0.075, cntr3_y - 0.075, cntr4_y - 0.07)
     
+    
     labels_yes <- labels |>
       filter(text %in% c("D", "A"))
-    
     labels_no <- labels |> 
       filter(text %in% c('C', 'B'))
     

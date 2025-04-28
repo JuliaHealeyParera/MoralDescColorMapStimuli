@@ -1,5 +1,6 @@
 library(tidyverse)
 
+#Most recent pilot data
 data <- read_csv('pilot_data_040625.csv')
 
 returns <- c(
@@ -34,8 +35,10 @@ returns <- c(
   '66cfdf92dee873a6ca9158b7',
   '5e8b89d0afcb1606e761ef7f')
 
+#Removing returned submissions, eliminating observations from testing
 data <- data |>
-  filter(!(PROLIFIC_PID %in% returns) & row_number() > 31)
+  filter(!(PROLIFIC_PID %in% returns) & row_number() > 31) 
+#Table detailing what each question is--could have also directly renamed df col
 tracking_qcodes <- data.frame(ALLOC = c(13, 14, 15, 16, 17, 18, 19, 20), 
                               allocq = c('Q255', 'Q256', 'Q257', 'Q258','Q259', 'Q260','Q261','Q262'),
                               penaltyq = c('Q225', 'Q223', 'Q226','Q228','Q230','Q227','Q229','Q232'), 
@@ -43,6 +46,7 @@ tracking_qcodes <- data.frame(ALLOC = c(13, 14, 15, 16, 17, 18, 19, 20),
 
 all_col <- c(tracking_qcodes$allocq, tracking_qcodes$penaltyq, tracking_qcodes$praiseworthq)
 
+#Assign numerical encodings
 levels <- function(x) {
   num <- case_when(x == "Very Blameworthy" ~ '-3',
                    x == "Moderately Blameworthy" ~ '-2',
@@ -84,35 +88,3 @@ to_analyze <- data |>
 
 top_qs <- to_analyze |>
   filter(question_num %in% c("Q255", "Q225", "Q9...125", "Q257", 'Q226', 'Q9...139'))
-#analysis psuedo code
-
-#Assuming df has structure: 
-  #damage lvl A 
-  #damage lvl B
-  #damage lvl C 
-  #damage lvl D
-  #voting desc A 
-  #voting desc B
-  #voting desc C
-  #voting desc D
-  #block num (1, 2, 3, 4 -- 1-3 are control, 4 is testing scenarios)
-  #damage_lvl_grp (concatenated ver. of first 4 fields, for grouping)
-  #voting_desc_grp (concatenated ver. of fields 5-8, for grouping)
-  #allocation amt to A
-  #penalty amt to A
-  #blame/praiseworthiness rating
-
-#Before aggregation, analyze distribution for allocation and penalization of control groups (univariate)
-  #Check for bimodality, and see if participants can be grouped based on how they interpret the prompt
-
-#CONTROL GROUPS: grouping by damage_lvl_grp, find average allocation, penalty, and praise/blameworthy ratings in each voting desc
-  #Are differences statistically significant? How/where?
-
-
-#mediation and moderation analyses
-#Do relationships between independent and dependent variables rely on scores from personality surveys?
-#Do a set of analysis without taking personality surveys into account, then another examining interaction terms
-#Decide on which personality surveys to implement into Qualtrics
-#Add timing question for each page (Qualtrics built-in timing q for each page)
-#Do study run-through -- check agenda TO DOs
-#For target/testing groups, what is variance within results for each metric? Which is most varied?

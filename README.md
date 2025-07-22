@@ -20,9 +20,8 @@ The updated approach prioritizes **experimental control and reproducibility**:
 - Maps generated using `label_positions.R`, which enforces constraints on shape placement, rotation, and (dis)similarity.
 This shift enables **cleaner experimental manipulations** and more reliable attribution of decision-making differences to color encoding — not arbitrary spatial variation.
 
-### Example Stimuli (IRB-Approved and Used) 
+## Example Stimuli (IRB-Approved and Used) 
 <img width="1000" height="800" alt="intuitive_blues_8642" src="https://github.com/user-attachments/assets/ae577487-3887-4203-94a8-47c33b777c70" />
-
 
 ##  Repository Structure (Briefly)
 - `curr_map_scripts/`: Finalized, standardized map generation code (used in the experiment).
